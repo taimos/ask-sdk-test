@@ -15,9 +15,9 @@ class LaunchRequestHandler implements RequestHandler {
     public handle(handlerInput : HandlerInput) : Response {
         const speechText = 'Welcome to the Alexa Skills Kit, you can say hello!';
         return handlerInput.responseBuilder
-          .speak(speechText)
-          .withSimpleCard('Hello World', speechText)
-          .getResponse();
+            .speak(speechText)
+            .withSimpleCard('Hello World', speechText)
+            .getResponse();
     }
 
 }
@@ -26,7 +26,7 @@ class HelloWorldIntentHandler implements RequestHandler {
 
     public canHandle(handlerInput : HandlerInput) : boolean {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-          && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
+            && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
     }
 
     public handle(handlerInput : HandlerInput) : Response {
@@ -37,15 +37,15 @@ class HelloWorldIntentHandler implements RequestHandler {
         handlerInput.attributesManager.setSessionAttributes(attributes);
 
         return handlerInput.responseBuilder
-          .speak(speechText)
-          .withSimpleCard('Hello World', speechText)
-          .getResponse();
+            .speak(speechText)
+            .withSimpleCard('Hello World', speechText)
+            .getResponse();
     }
 }
 
 export const handler : LambdaHandler = SkillBuilders.custom()
-  .addRequestHandlers(
-    new LaunchRequestHandler(),
-    new HelloWorldIntentHandler(),
-  )
-  .lambda();
+    .addRequestHandlers(
+        new LaunchRequestHandler(),
+        new HelloWorldIntentHandler(),
+    )
+    .lambda();

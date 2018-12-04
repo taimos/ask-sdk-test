@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import {dialog, ResponseEnvelope} from 'ask-sdk-model';
+import {ResponseEnvelope} from 'ask-sdk-model';
 import {fail} from 'assert';
 import {expect} from 'chai';
 import {ResponseValidator, SequenceItem} from '../types';

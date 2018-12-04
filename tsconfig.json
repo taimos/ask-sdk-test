@@ -1,17 +1,24 @@
 {
-  "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "rootDir": "lib",
-    "outDir" : "dist",
-    "sourceMap" : true,
-    "inlineSources" : false,
-    "alwaysStrict" : true,
-    "removeComments" : false,
-    "declaration" : true,
-    "lib": ["es2017", "dom"]
-  },
-  "include": ["lib"],
-  "exclude": ["examples"]
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "rootDir": "lib",
+        "outDir": "dist",
+        "sourceMap": true,
+        "inlineSources": false,
+        "alwaysStrict": true,
+        "removeComments": false,
+        "declaration": true,
+        "lib": [
+            "es2017",
+            "dom"
+        ]
+    },
+    "include": [
+        "lib"
+    ],
+    "exclude": [
+        "examples"
+    ]
 }

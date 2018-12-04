@@ -1,61 +1,61 @@
 {
-  "name": "ask-sdk-test",
-  "displayName": "Alexa Skill Test Framework",
-  "version": "2.0.0",
-  "description": "Framework for easy offline black-box testing of Alexa skills.",
-  "keywords": [
-    "alexa",
-    "amazon",
-    "echo",
-    "test",
-    "offline",
-    "mocha",
-    "black box",
-    "black-box",
-    "coverage"
-  ],
-  "license": "MIT",
-  "author": {
-    "name": "Thorsten Hoeger",
-    "email": "thorsten.hoeger@taimos.de",
-    "url": "https://www.taimos.de"
-  },
-  "scripts": {
-    "gulp": "gulp",
-    "test": "gulp test"
-  },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "dependencies": {
-    "aws-sdk-mock": "^1.7.0",
-    "lambda-local": "^1.5.2",
-    "uuid": "^3.0.1"
-  },
-  "peerDependencies": {
-    "mocha": "^3.2.0"
-  },
-  "bugs": {
-    "url": "https://github.com/taimos/ask-sdk-test/issues"
-  },
-  "repository": "taimos/ask-sdk-test",
-  "devDependencies": {
-    "@types/chai": "^4.1.2",
-    "@types/mocha": "^5.0.0",
-    "@types/node": "^9.6.1",
-    "@types/sinon": "^4.3.0",
-    "ask-sdk": "^2.0.7",
-    "ask-sdk-core": "^2.0.7",
-    "ask-sdk-model": "^1.5.0",
-    "chai": "^4.1.2",
-    "del": "^3.0.0",
-    "gulp": "^4.0.0",
-    "mocha": "^5.0.5",
-    "nock": "^9.2.3",
-    "nyc": "^13.0.0",
-    "sinon": "^4.5.0",
-    "ts-node": "^6.0.1",
-    "tslint": "^5.9.1",
-    "typedoc": "^0.11.1",
-    "typescript": "^2.8.1"
-  }
+    "name": "ask-sdk-test",
+    "displayName": "Alexa Skill Test Framework",
+    "version": "2.0.0",
+    "description": "Framework for easy offline black-box testing of Alexa skills.",
+    "keywords": [
+        "alexa",
+        "amazon",
+        "echo",
+        "test",
+        "offline",
+        "mocha",
+        "black box",
+        "black-box",
+        "coverage"
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "Thorsten Hoeger",
+        "email": "thorsten.hoeger@taimos.de",
+        "url": "https://www.taimos.de"
+    },
+    "scripts": {
+        "gulp": "gulp",
+        "test": "gulp test"
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "dependencies": {
+        "aws-sdk-mock": "^1.7.0",
+        "lambda-local": "^1.5.2",
+        "uuid": "^3.0.1"
+    },
+    "peerDependencies": {
+        "mocha": "^3.2.0"
+    },
+    "bugs": {
+        "url": "https://github.com/taimos/ask-sdk-test/issues"
+    },
+    "repository": "taimos/ask-sdk-test",
+    "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/mocha": "^5.0.0",
+        "@types/node": "^9.6.1",
+        "@types/sinon": "^4.3.0",
+        "ask-sdk": "^2.0.7",
+        "ask-sdk-core": "^2.0.7",
+        "ask-sdk-model": "^1.5.0",
+        "chai": "^4.1.2",
+        "del": "^3.0.0",
+        "gulp": "^4.0.0",
+        "mocha": "^5.0.5",
+        "nock": "^9.2.3",
+        "nyc": "^13.0.0",
+        "sinon": "^4.5.0",
+        "ts-node": "^6.0.1",
+        "tslint": "^5.9.1",
+        "typedoc": "^0.11.1",
+        "typescript": "^2.8.1"
+    }
 }

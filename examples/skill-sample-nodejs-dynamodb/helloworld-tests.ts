@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
+ */
+
 import {AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings} from '../../lib';
 import {handler as skillHandler} from './helloworld';
 

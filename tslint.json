@@ -21,8 +21,14 @@
     "ban-comma-operator": true,
     "ban-types": [
       true,
-      ["Object", "Use {} instead."],
-      ["String", "Use string instead."]
+      [
+        "Object",
+        "Use {} instead."
+      ],
+      [
+        "String",
+        "Use string instead."
+      ]
     ],
     "binary-expression-operand-order": true,
     "class-name": true,

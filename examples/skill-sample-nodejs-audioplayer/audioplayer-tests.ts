@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
+ */
+
 import {AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings} from '../../lib';
 import {AudioPlayerPauseIntentRequestBuilder, AudioPlayerResumeIntentRequestBuilder} from '../../lib/factory/AudioIntentRequestBuilder';
 import {handler as skillHandler} from './audioplayer';
