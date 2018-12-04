@@ -1,5 +1,8 @@
 # Alexa Skill Test Framework
 
+[![Build Status](https://travis-ci.org/taimos/ask-sdk-test.svg?branch=master)](https://travis-ci.org/taimos/ask-sdk-test)
+[![npm version](https://badge.fury.io/js/ask-sdk-test.svg)](https://badge.fury.io/js/ask-sdk-test)
+
 This framework makes it easy to create full-coverage black box tests for an Alexa skill using [Mocha](https://mochajs.org/).
 
 Here's an example of what a test might look like with the test framework.
