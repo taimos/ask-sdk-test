@@ -17,6 +17,7 @@ class SayHelloHandler implements RequestHandler {
     public async handle(handlerInput : HandlerInput) : Promise<Response> {
         const attributes = await handlerInput.attributesManager.getPersistentAttributes();
         attributes.foo = 'bar';
+        attributes.count = 1;
         handlerInput.attributesManager.setPersistentAttributes(attributes);
         await handlerInput.attributesManager.savePersistentAttributes();
 

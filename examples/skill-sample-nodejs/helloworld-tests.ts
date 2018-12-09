@@ -36,6 +36,7 @@ describe('Hello World Skill', () => {
                 says: 'Hello World!', repromptsNothing: true, shouldEndSession: true,
                 hasAttributes: {
                     foo: 'bar',
+                    count: 1,
                 },
             },
         ]);

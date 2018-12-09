@@ -32,17 +32,17 @@ export interface SequenceItem {
     confirmsSlot?: string;
     /** Tests that the response asks Alexa to confirm the intent. */
     confirmsIntent?: boolean;
-    /** Tests that the response contains the given attributes and values. Values can be strings or functions testing the value. */
+    /** Tests that the response contains the given attributes and values. Values can be strings, numbers, booleans or functions testing the value. */
     hasAttributes?: {
-        [key: string]: (string | ((attribute: any) => boolean));
+        [key: string]: (string | number | boolean | ((attribute: any) => boolean));
     };
-    /** Tests that the given attributes were stored in the DynamoDB. */
+    /** Tests that the given attributes were stored in the DynamoDB. Values can be strings, numbers, booleans or functions testing the value. */
     storesAttributes?: {
-        [key: string]: (string | ((attribute: any) => boolean));
+        [key: string]: (string | number | boolean | ((attribute: any) => boolean));
     };
-    /** The attributes to initialize the handler with. Used with DynamoDB mock. Values can be strings or functions testing the value. */
+    /** The attributes to initialize the handler with. Used with DynamoDB mock. */
     withStoredAttributes?: {
-        [key: string]: string;
+        [key: string]: (string | number | boolean | object);
     };
     /** Tests that the card sent by the response has the title specified. */
     hasCardTitle?: string;
@@ -64,7 +64,7 @@ export interface SequenceItem {
     stopsStream?: boolean;
     /** Tests that the AudioPlayer clears the queue with the given clear behavior. */
     clearsQueue?: string;
-    /** Any additional fiels for custom validators */
+    /** Any additional fields for custom validators */
     [key: string]: any;
 }
 export interface PlayStreamConfig {

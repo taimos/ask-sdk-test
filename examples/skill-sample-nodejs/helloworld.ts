@@ -34,6 +34,7 @@ class HelloWorldIntentHandler implements RequestHandler {
 
         const attributes = handlerInput.attributesManager.getSessionAttributes();
         attributes.foo = 'bar';
+        attributes.count = 1;
         handlerInput.attributesManager.setSessionAttributes(attributes);
 
         return handlerInput.responseBuilder

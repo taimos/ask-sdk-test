@@ -35,6 +35,7 @@ describe('Hello World Skill DynamoDB', () => {
                 says: 'Hello World!', repromptsNothing: true, shouldEndSession: true,
                 storesAttributes: {
                     foo: 'bar',
+                    count: 1,
                 },
             },
         ]);
