@@ -8,6 +8,6 @@ export declare class IntentRequestBuilder extends RequestBuilder {
     withEmptySlot(name: string): IntentRequestBuilder;
     withSlot(name: string, value: string): IntentRequestBuilder;
     withSlotResolution(name: string, value: string, slotType: string, id: string): IntentRequestBuilder;
-    withSlotResultionNoMatch(name: string, value: string, slotType: string): IntentRequestBuilder;
+    withSlotResolutionNoMatch(name: string, value: string, slotType: string): IntentRequestBuilder;
     protected buildRequest(): Request;
 }

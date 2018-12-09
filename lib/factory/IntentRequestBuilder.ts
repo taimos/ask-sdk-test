@@ -64,7 +64,7 @@ export class IntentRequestBuilder extends RequestBuilder {
         return this;
     }
 
-    public withSlotResultionNoMatch(name : string, value : string, slotType : string) : IntentRequestBuilder {
+    public withSlotResolutionNoMatch(name : string, value : string, slotType : string) : IntentRequestBuilder {
         this.withSlot(name, value);
 
         if (!this.slots[name].resolutions) {
