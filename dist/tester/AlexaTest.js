@@ -94,7 +94,6 @@ class AlexaTest {
             request.session.sessionId = settings.sessionId;
             if (this.dynamoDBTable) {
                 dynamoDBMock.putMock = (params, callback) => {
-                    console.log({ params });
                     chai_1.expect(params).to.have.property('TableName', this.dynamoDBTable);
                     chai_1.expect(params).to.haveOwnProperty('Item');
                     chai_1.expect(params.Item).to.have.property(this.partitionKeyName, settings.userId);
@@ -118,7 +117,6 @@ class AlexaTest {
                     callback(null, {});
                 };
                 dynamoDBMock.getMock = (params, callback) => {
-                    console.log({ params });
                     chai_1.expect(params).to.have.property('TableName', this.dynamoDBTable);
                     chai_1.expect(params).to.haveOwnProperty('Key');
                     chai_1.expect(params.Key).to.have.property(this.partitionKeyName, settings.userId);

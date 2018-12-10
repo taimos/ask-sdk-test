@@ -116,7 +116,6 @@ export class AlexaTest {
 
             if (this.dynamoDBTable) {
                 dynamoDBMock.putMock = (params : PutItemInput, callback : Function) => {
-                    console.log({params});
                     expect(params).to.have.property('TableName', this.dynamoDBTable);
                     expect(params).to.haveOwnProperty('Item');
                     expect(params.Item).to.have.property(this.partitionKeyName, settings.userId);
@@ -139,7 +138,6 @@ export class AlexaTest {
                     callback(null, {});
                 };
                 dynamoDBMock.getMock = (params : GetItemInput, callback) => {
-                    console.log({params});
                     expect(params).to.have.property('TableName', this.dynamoDBTable);
                     expect(params).to.haveOwnProperty('Key');
                     expect(params.Key).to.have.property(this.partitionKeyName, settings.userId);
