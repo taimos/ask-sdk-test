@@ -4,14 +4,20 @@
 
 import {Context, Request, RequestEnvelope, Session} from 'ask-sdk-model';
 import {v4} from 'uuid';
-import {SkillSettings} from '../types';
+import {InterfaceSettings, SkillSettings} from '../types';
 
 export abstract class RequestBuilder {
 
     protected settings : SkillSettings;
 
     constructor(settings : SkillSettings) {
-        this.settings = settings;
+        this.settings = JSON.parse(JSON.stringify(settings));
+        if (!this.settings.interfaces) {
+            this.settings.interfaces = {};
+        }
+        if (!this.settings.interfaces.hasOwnProperty('audio')) {
+            this.settings.interfaces.audio = true;
+        }
     }
 
     public build() : RequestEnvelope {
@@ -23,6 +29,22 @@ export abstract class RequestBuilder {
         };
         this.modifyRequest(request);
         return request;
+    }
+
+    public withInterfaces(iface : InterfaceSettings) : RequestBuilder {
+        if (iface.hasOwnProperty('apl')) {
+            this.settings.interfaces.apl = iface.apl;
+        }
+        if (iface.hasOwnProperty('audio')) {
+            this.settings.interfaces.audio = iface.audio;
+        }
+        if (iface.hasOwnProperty('display')) {
+            this.settings.interfaces.display = iface.display;
+        }
+        if (iface.hasOwnProperty('video')) {
+            this.settings.interfaces.video = iface.video;
+        }
+        return this;
     }
 
     protected abstract buildRequest() : Request;
@@ -43,22 +65,34 @@ export abstract class RequestBuilder {
     }
 
     protected getContextData() : Context {
-        return {
+        const ctx : Context = {
             System: {
                 application: {applicationId: this.settings.appId},
                 user: {userId: this.settings.userId},
                 device: {
                     deviceId: this.settings.deviceId,
-                    supportedInterfaces: {
-                        AudioPlayer: {},
-                    },
+                    supportedInterfaces: {},
                 },
                 apiEndpoint: 'https://api.amazonalexa.com/',
+                apiAccessToken: v4(),
             },
             AudioPlayer: {
                 playerActivity: 'IDLE',
             },
         };
+        if (this.settings.interfaces.audio) {
+            ctx.System.device.supportedInterfaces.AudioPlayer = {};
+        }
+        if (this.settings.interfaces.display) {
+            ctx.System.device.supportedInterfaces.Display = {templateVersion: '1.0', markupVersion: '1.0'};
+        }
+        if (this.settings.interfaces.video) {
+            ctx.System.device.supportedInterfaces.VideoApp = {};
+        }
+        if (this.settings.interfaces.apl) {
+            ctx.System.device.supportedInterfaces['Alexa.Presentation.APL'] = {runtime: {maxVersion: '1.0'}};
+        }
+        return ctx;
     }
 
 }

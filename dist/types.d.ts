@@ -4,6 +4,13 @@ export interface SkillSettings {
     userId: string;
     deviceId: string;
     locale: string;
+    interfaces?: InterfaceSettings;
+}
+export interface InterfaceSettings {
+    display?: boolean;
+    audio?: boolean;
+    video?: boolean;
+    apl?: boolean;
 }
 export interface SequenceItem {
     /** The request to run. Generate these with one of the above `getFooRequest` methods. */
