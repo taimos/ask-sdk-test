@@ -51,10 +51,12 @@ export interface SequenceItem {
 
     /** Tests that the response contains the given attributes and values. Values can be strings, numbers, booleans or functions testing the value. */
     hasAttributes? : { [key : string] : (string | number | boolean | ((attribute : any) => boolean)) };
+    /** The session attributes to initialize the an intent request with. */
+    withSessionAttributes? : { [key : string] : any };
     /** Tests that the given attributes were stored in the DynamoDB. Values can be strings, numbers, booleans or functions testing the value. */
     storesAttributes? : { [key : string] : (string | number | boolean | ((attribute : any) => boolean)); };
     /** The attributes to initialize the handler with. Used with DynamoDB mock. */
-    withStoredAttributes? : { [key : string] : (string | number | boolean | object); };
+    withStoredAttributes? : { [key : string] : any; };
 
     /** Tests that the card sent by the response has the title specified. */
     hasCardTitle? : string;

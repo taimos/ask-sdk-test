@@ -34,9 +34,13 @@ describe('Hello World Skill', () => {
             {
                 request: new IntentRequestBuilder(skillSettings, 'HelloWorldIntent').build(),
                 says: 'Hello World!', repromptsNothing: true, shouldEndSession: true,
+                withSessionAttributes: {
+                    bar: true,
+                },
                 hasAttributes: {
                     foo: 'bar',
                     count: 1,
+                    bar: true,
                 },
             },
         ]);

@@ -114,6 +114,15 @@ export class AlexaTest {
             request.session.attributes = attributes ? JSON.parse(JSON.stringify(attributes)) : {};
             request.session.sessionId = settings.sessionId;
 
+            // adds values from withSessionAttributes to the session
+            if (currentItem.withSessionAttributes) {
+                for (const newAttribute in currentItem.withSessionAttributes) {
+                    if (currentItem.withSessionAttributes.hasOwnProperty(newAttribute) && !request.session.attributes.hasOwnProperty(newAttribute)) {
+                        request.session.attributes[newAttribute] = currentItem.withSessionAttributes[newAttribute];
+                    }
+                }
+            }
+
             if (this.dynamoDBTable) {
                 dynamoDBMock.putMock = (params : PutItemInput, callback : Function) => {
                     expect(params).to.have.property('TableName', this.dynamoDBTable);
