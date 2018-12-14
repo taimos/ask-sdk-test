@@ -8,6 +8,9 @@ export interface SkillSettings {
 export interface SequenceItem {
     /** The request to run. Generate these with one of the above `getFooRequest` methods. */
     request: RequestEnvelope;
+    withSessionAttributes?: {
+        [key: string]: (string | number | boolean);
+    };
     /** Receives the response object from the request as a parameter. You can make custom checks against the response using any assertion library you like in here. */
     callback?: (response: ResponseEnvelope) => void;
     /** Tests that the speech output from the request is the string specified. */

@@ -51,4 +51,19 @@ describe('Hello World Skill', () => {
             },
         ]);
     });
+
+    describe('HelloWorldIntent session', () => {
+        const attributes = { attribute: 'test' };
+        alexaTest.test([
+            {
+                request: new IntentRequestBuilder(skillSettings, 'HelloWorldIntent').build(),
+                withSessionAttributes: attributes,
+                hasAttributes: {
+                  foo: 'bar',
+                  count: 1,
+                  attribute: 'test'
+              }
+            }
+        ])
+    })
 });

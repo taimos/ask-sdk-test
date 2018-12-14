@@ -84,6 +84,7 @@ describe(<span class="hljs-string">'LaunchRequest'</span>, <span class="hljs-fun
     alexaTest.test([
         {
             request: <span class="hljs-keyword">new</span> LaunchRequestBuilder(skillSettings).build(),
+            withSessionAttributes: { attributes: <span class="hljs-string">'foo'</span> }
             says: <span class="hljs-string">'Welcome to the Alexa Skills Kit, you can say hello!'</span>,
             repromptsNothing: <span class="hljs-literal">true</span>,
             shouldEndSession: <span class="hljs-literal">true</span>,

@@ -25,6 +25,7 @@ describe('LaunchRequest', () => {
     alexaTest.test([
         {
             request: new LaunchRequestBuilder(skillSettings).build(),
+            withSessionAttributes: { attributes: 'foo' }
             says: 'Welcome to the Alexa Skills Kit, you can say hello!',
             repromptsNothing: true,
             shouldEndSession: true,

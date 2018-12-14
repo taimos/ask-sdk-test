@@ -19,3 +19,4 @@ node_modules/
 
 # lock files (do not track for libraries)
 package-lock.json
+.DS_Store

@@ -3,6 +3,7 @@
  */
 
 import {RequestEnvelope, ResponseEnvelope} from 'ask-sdk-model';
+import { AlexaTest } from './tester/AlexaTest';
 
 export interface SkillSettings {
     appId : string;
@@ -14,6 +15,9 @@ export interface SkillSettings {
 export interface SequenceItem {
     /** The request to run. Generate these with one of the above `getFooRequest` methods. */
     request : RequestEnvelope;
+
+    /** Attributes to add to the next request */
+    withSessionAttributes? : { [key : string] : (string | number | boolean)};
 
     /** Receives the response object from the request as a parameter. You can make custom checks against the response using any assertion library you like in here. */
     callback? : (response : ResponseEnvelope) => void;

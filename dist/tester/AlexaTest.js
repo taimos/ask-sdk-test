@@ -92,6 +92,9 @@ class AlexaTest {
             request.session.new = (sequenceIndex === 0);
             request.session.attributes = attributes ? JSON.parse(JSON.stringify(attributes)) : {};
             request.session.sessionId = settings.sessionId;
+            if (currentItem.withSessionAttributes) {
+                request.session.attributes = currentItem.withSessionAttributes;
+            }
             if (this.dynamoDBTable) {
                 dynamoDBMock.putMock = (params, callback) => {
                     chai_1.expect(params).to.have.property('TableName', this.dynamoDBTable);
