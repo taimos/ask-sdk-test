@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ResponseValidator | ask-sdk-test</title>
+	<title>VideoAppValidator | ask-sdk-test</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="responsevalidator.html">ResponseValidator</a>
+					<a href="videoappvalidator.html">VideoAppValidator</a>
 				</li>
 			</ul>
-			<h1>Class ResponseValidator</h1>
+			<h1>Class VideoAppValidator</h1>
 		</div>
 	</div>
 </header>
@@ -68,31 +68,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ResponseValidator</span>
+						<a href="responsevalidator.html" class="tsd-signature-type">ResponseValidator</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="audioplayervalidator.html" class="tsd-signature-type">AudioPlayerValidator</a>
-							</li>
-							<li>
-								<a href="cardvalidator.html" class="tsd-signature-type">CardValidator</a>
-							</li>
-							<li>
-								<a href="dialogvalidator.html" class="tsd-signature-type">DialogValidator</a>
-							</li>
-							<li>
-								<a href="endsessionvalidator.html" class="tsd-signature-type">EndSessionValidator</a>
-							</li>
-							<li>
-								<a href="questionmarkvalidator.html" class="tsd-signature-type">QuestionMarkValidator</a>
-							</li>
-							<li>
-								<a href="sessionattributevalidator.html" class="tsd-signature-type">SessionAttributeValidator</a>
-							</li>
-							<li>
-								<a href="speechvalidator.html" class="tsd-signature-type">SpeechValidator</a>
-							</li>
-							<li>
-								<a href="videoappvalidator.html" class="tsd-signature-type">VideoAppValidator</a>
+								<span class="target">VideoAppValidator</span>
 							</li>
 						</ul>
 					</li>
@@ -105,7 +84,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="responsevalidator.html#validate" class="tsd-kind-icon">validate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="videoappvalidator.html#validate" class="tsd-kind-icon">validate</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,17 +92,18 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="validate" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> validate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<h3>validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span>currentItem<span class="tsd-signature-symbol">: </span><a href="../interfaces/sequenceitem.html" class="tsd-signature-type">SequenceItem</a>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ResponseEnvelope</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Overrides <a href="responsevalidator.html">ResponseValidator</a>.<a href="responsevalidator.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/994af8c/lib/types.ts#L106">types.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/994af8c/lib/tester/VideoAppValidator.ts#L11">tester/VideoAppValidator.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -184,18 +164,9 @@
 					<li class=" tsd-kind-class">
 						<a href="requestbuilder.html" class="tsd-kind-icon">Request<wbr>Builder</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class=" tsd-kind-class">
 						<a href="responsevalidator.html" class="tsd-kind-icon">Response<wbr>Validator</a>
-						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="responsevalidator.html#validate" class="tsd-kind-icon">validate</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="sessionattributevalidator.html" class="tsd-kind-icon">Session<wbr>Attribute<wbr>Validator</a>
 					</li>
@@ -205,9 +176,18 @@
 					<li class=" tsd-kind-class">
 						<a href="speechvalidator.html" class="tsd-kind-icon">Speech<wbr>Validator</a>
 					</li>
-					<li class=" tsd-kind-class">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
 						<a href="videoappvalidator.html" class="tsd-kind-icon">Video<wbr>App<wbr>Validator</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="videoappvalidator.html#validate" class="tsd-kind-icon">validate</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/interfacesettings.html" class="tsd-kind-icon">Interface<wbr>Settings</a>
 					</li>

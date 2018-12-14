@@ -16,6 +16,7 @@ const EndSessionValidator_1 = require("./EndSessionValidator");
 const QuestionMarkValidator_1 = require("./QuestionMarkValidator");
 const SessionAttributeValidator_1 = require("./SessionAttributeValidator");
 const SpeechValidator_1 = require("./SpeechValidator");
+const VideoAppValidator_1 = require("./VideoAppValidator");
 lambdaLocal.getLogger().level = 'error';
 const dynamoDBMock = {
     getMock: () => undefined,
@@ -40,6 +41,7 @@ class AlexaTest {
             new QuestionMarkValidator_1.QuestionMarkValidator(),
             new EndSessionValidator_1.EndSessionValidator(),
             new AudioPlayerValidator_1.AudioPlayerValidator(),
+            new VideoAppValidator_1.VideoAppValidator(),
             new CardValidator_1.CardValidator(),
         ];
     }

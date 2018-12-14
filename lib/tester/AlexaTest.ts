@@ -18,6 +18,7 @@ import {EndSessionValidator} from './EndSessionValidator';
 import {QuestionMarkValidator} from './QuestionMarkValidator';
 import {SessionAttributeValidator} from './SessionAttributeValidator';
 import {SpeechValidator} from './SpeechValidator';
+import {VideoAppValidator} from './VideoAppValidator';
 import PutItemInput = DocumentClient.PutItemInput;
 import GetItemInput = DocumentClient.GetItemInput;
 
@@ -56,6 +57,7 @@ export class AlexaTest {
             new QuestionMarkValidator(),
             new EndSessionValidator(),
             new AudioPlayerValidator(),
+            new VideoAppValidator(),
             new CardValidator(),
         ];
     }

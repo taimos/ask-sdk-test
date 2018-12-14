@@ -75,6 +75,8 @@ export interface SequenceItem {
     stopsStream?: boolean;
     /** Tests that the AudioPlayer clears the queue with the given clear behavior. */
     clearsQueue?: string;
+    /** Tests that the VideoPlayer is used to play a stream. */
+    playsVideo?: PlayVideoConfig;
     /** Any additional fields for custom validators */
     [key: string]: any;
 }
@@ -84,6 +86,11 @@ export interface PlayStreamConfig {
     previousToken?: string;
     url?: string;
     offset?: number;
+}
+export interface PlayVideoConfig {
+    source?: string;
+    titel?: string;
+    subtitle?: string;
 }
 export declare abstract class ResponseValidator {
     abstract validate(currentItem: SequenceItem, response: ResponseEnvelope): void;
