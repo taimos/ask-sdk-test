@@ -1,5 +1,7 @@
 
 ## current master
+
+## 2.0.2
 * add supportedInterfaces to request builder
 * add missing feature `withSessionAttributes` (#3)
 * add validator for video playback
