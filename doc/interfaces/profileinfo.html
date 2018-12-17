@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>QuestionMarkValidator | ask-sdk-test</title>
+	<title>ProfileInfo | ask-sdk-test</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="questionmarkvalidator.html">QuestionMarkValidator</a>
+					<a href="profileinfo.html">ProfileInfo</a>
 				</li>
 			</ul>
-			<h1>Class QuestionMarkValidator</h1>
+			<h1>Interface ProfileInfo</h1>
 		</div>
 	</div>
 </header>
@@ -68,12 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="responsevalidator.html" class="tsd-signature-type">ResponseValidator</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">QuestionMarkValidator</span>
-							</li>
-						</ul>
+						<span class="target">ProfileInfo</span>
 					</li>
 				</ul>
 			</section>
@@ -82,42 +77,58 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="questionmarkvalidator.html#validate" class="tsd-kind-icon">validate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="profileinfo.html#email" class="tsd-kind-icon">email</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="profileinfo.html#givenname" class="tsd-kind-icon">given<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="profileinfo.html#mobilenumber" class="tsd-kind-icon">mobile<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="profileinfo.html#name" class="tsd-kind-icon">name</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="validate" class="tsd-anchor"></a>
-					<h3>validate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span>currentItem<span class="tsd-signature-symbol">: </span><a href="../interfaces/sequenceitem.html" class="tsd-signature-type">SequenceItem</a>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ResponseEnvelope</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="responsevalidator.html">ResponseValidator</a>.<a href="responsevalidator.html#validate">validate</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/5a14c85/lib/tester/QuestionMarkValidator.ts#L11">tester/QuestionMarkValidator.ts:11</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>currentItem: <a href="../interfaces/sequenceitem.html" class="tsd-signature-type">SequenceItem</a></h5>
-								</li>
-								<li>
-									<h5>response: <span class="tsd-signature-type">ResponseEnvelope</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="email" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> email</h3>
+					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/5a14c85/lib/types.ts#L110">types.ts:110</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="givenname" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> given<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">given<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/5a14c85/lib/types.ts#L109">types.ts:109</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="mobilenumber" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mobile<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">mobile<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/5a14c85/lib/types.ts#L111">types.ts:111</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/5a14c85/lib/types.ts#L108">types.ts:108</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -132,82 +143,91 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="alexatest.html" class="tsd-kind-icon">Alexa<wbr>Test</a>
+						<a href="../classes/alexatest.html" class="tsd-kind-icon">Alexa<wbr>Test</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="audioplayerpauseintentrequestbuilder.html" class="tsd-kind-icon">Audio<wbr>Player<wbr>Pause<wbr>Intent<wbr>Request<wbr>Builder</a>
+						<a href="../classes/audioplayerpauseintentrequestbuilder.html" class="tsd-kind-icon">Audio<wbr>Player<wbr>Pause<wbr>Intent<wbr>Request<wbr>Builder</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="audioplayerresumeintentrequestbuilder.html" class="tsd-kind-icon">Audio<wbr>Player<wbr>Resume<wbr>Intent<wbr>Request<wbr>Builder</a>
+						<a href="../classes/audioplayerresumeintentrequestbuilder.html" class="tsd-kind-icon">Audio<wbr>Player<wbr>Resume<wbr>Intent<wbr>Request<wbr>Builder</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="audioplayervalidator.html" class="tsd-kind-icon">Audio<wbr>Player<wbr>Validator</a>
+						<a href="../classes/audioplayervalidator.html" class="tsd-kind-icon">Audio<wbr>Player<wbr>Validator</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="cardvalidator.html" class="tsd-kind-icon">Card<wbr>Validator</a>
+						<a href="../classes/cardvalidator.html" class="tsd-kind-icon">Card<wbr>Validator</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="dialogvalidator.html" class="tsd-kind-icon">Dialog<wbr>Validator</a>
+						<a href="../classes/dialogvalidator.html" class="tsd-kind-icon">Dialog<wbr>Validator</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="endsessionvalidator.html" class="tsd-kind-icon">End<wbr>Session<wbr>Validator</a>
+						<a href="../classes/endsessionvalidator.html" class="tsd-kind-icon">End<wbr>Session<wbr>Validator</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="intentrequestbuilder.html" class="tsd-kind-icon">Intent<wbr>Request<wbr>Builder</a>
+						<a href="../classes/intentrequestbuilder.html" class="tsd-kind-icon">Intent<wbr>Request<wbr>Builder</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="launchrequestbuilder.html" class="tsd-kind-icon">Launch<wbr>Request<wbr>Builder</a>
+						<a href="../classes/launchrequestbuilder.html" class="tsd-kind-icon">Launch<wbr>Request<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/questionmarkvalidator.html" class="tsd-kind-icon">Question<wbr>Mark<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/requestbuilder.html" class="tsd-kind-icon">Request<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/responsevalidator.html" class="tsd-kind-icon">Response<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/sessionattributevalidator.html" class="tsd-kind-icon">Session<wbr>Attribute<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/sessionendedrequestbuilder.html" class="tsd-kind-icon">Session<wbr>Ended<wbr>Request<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/speechvalidator.html" class="tsd-kind-icon">Speech<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/videoappvalidator.html" class="tsd-kind-icon">Video<wbr>App<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfacesettings.html" class="tsd-kind-icon">Interface<wbr>Settings</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="playstreamconfig.html" class="tsd-kind-icon">Play<wbr>Stream<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="playvideoconfig.html" class="tsd-kind-icon">Play<wbr>Video<wbr>Config</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="questionmarkvalidator.html" class="tsd-kind-icon">Question<wbr>Mark<wbr>Validator</a>
+					<li class="current tsd-kind-interface">
+						<a href="profileinfo.html" class="tsd-kind-icon">Profile<wbr>Info</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="questionmarkvalidator.html#validate" class="tsd-kind-icon">validate</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="profileinfo.html#email" class="tsd-kind-icon">email</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="profileinfo.html#givenname" class="tsd-kind-icon">given<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="profileinfo.html#mobilenumber" class="tsd-kind-icon">mobile<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="profileinfo.html#name" class="tsd-kind-icon">name</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="requestbuilder.html" class="tsd-kind-icon">Request<wbr>Builder</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="responsevalidator.html" class="tsd-kind-icon">Response<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="sessionattributevalidator.html" class="tsd-kind-icon">Session<wbr>Attribute<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="sessionendedrequestbuilder.html" class="tsd-kind-icon">Session<wbr>Ended<wbr>Request<wbr>Builder</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="speechvalidator.html" class="tsd-kind-icon">Speech<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="videoappvalidator.html" class="tsd-kind-icon">Video<wbr>App<wbr>Validator</a>
+					<li class=" tsd-kind-interface">
+						<a href="sequenceitem.html" class="tsd-kind-icon">Sequence<wbr>Item</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/interfacesettings.html" class="tsd-kind-icon">Interface<wbr>Settings</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/playstreamconfig.html" class="tsd-kind-icon">Play<wbr>Stream<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/playvideoconfig.html" class="tsd-kind-icon">Play<wbr>Video<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/profileinfo.html" class="tsd-kind-icon">Profile<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/sequenceitem.html" class="tsd-kind-icon">Sequence<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/skillsettings.html" class="tsd-kind-icon">Skill<wbr>Settings</a>
+						<a href="skillsettings.html" class="tsd-kind-icon">Skill<wbr>Settings</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="../interfaces/testsettings.html" class="tsd-kind-icon">Test<wbr>Settings</a>
+						<a href="testsettings.html" class="tsd-kind-icon">Test<wbr>Settings</a>
 					</li>
 					<li class=" tsd-kind-object-literal tsd-is-not-exported">
 						<a href="../globals.html#dynamodbmock" class="tsd-kind-icon">dynamoDBMock</a>

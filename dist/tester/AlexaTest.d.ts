@@ -17,4 +17,6 @@ export declare class AlexaTest {
     withDynamoDBPersistence(tableName: string, partitionKeyName?: string, attributesName?: string): AlexaTest;
     test(sequence: SequenceItem[], testDescription?: string): void;
     private runSingleTest;
+    private mockDynamoDB;
+    private mockProfileAPI;
 }

@@ -83,6 +83,9 @@ export interface SequenceItem {
     /** Tests that the VideoPlayer is used to play a stream. */
     playsVideo? : PlayVideoConfig;
 
+    /** The profile information for API calls. Ups will be unauthorized when this is undefined */
+    withProfile? : ProfileInfo;
+
     /** Any additional fields for custom validators */
     [key : string] : any;
 }
@@ -99,6 +102,13 @@ export interface PlayVideoConfig {
     source? : string;
     titel? : string;
     subtitle? : string;
+}
+
+export interface ProfileInfo {
+    name? : string;
+    givenName? : string;
+    email? : string;
+    mobileNumber? : string;
 }
 
 export abstract class ResponseValidator {

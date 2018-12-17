@@ -9,6 +9,7 @@ import {DocumentClient} from 'aws-sdk/lib/dynamodb/document_client';
 import {expect} from 'chai';
 import * as lambdaLocal from 'lambda-local';
 import {it} from 'mocha';
+import * as nock from 'nock';
 import {v4} from 'uuid';
 import {ResponseValidator, SequenceItem, SkillSettings} from '../types';
 import {AudioPlayerValidator} from './AudioPlayerValidator';
@@ -24,6 +25,7 @@ import GetItemInput = DocumentClient.GetItemInput;
 
 lambdaLocal.getLogger().level = 'error';
 
+// Install mock for DynamoDB persistence
 const dynamoDBMock : { getMock : (params : GetItemInput, callback : Function) => void; putMock : (params : PutItemInput, callback : Function) => void } = {
     getMock: () => undefined,
     putMock: () => undefined,
@@ -36,6 +38,14 @@ AWSMOCK.mock('DynamoDB.DocumentClient', 'put', (params : PutItemInput, callback 
     // Do not inline; resolution has to take place on call
     dynamoDBMock.putMock(params, callback);
 });
+
+// Install UpsServiceClient mock
+const upsServiceMock : { getProfileName : () => string; getProfileGivenName : () => string; getProfileEmail : () => string; getProfileMobileNumber : () => string; } = {
+    getProfileName: () => undefined,
+    getProfileGivenName: () => undefined,
+    getProfileEmail: () => undefined,
+    getProfileMobileNumber: () => undefined,
+};
 
 export class AlexaTest {
 
@@ -125,40 +135,9 @@ export class AlexaTest {
                 }
             }
 
-            if (this.dynamoDBTable) {
-                dynamoDBMock.putMock = (params : PutItemInput, callback : Function) => {
-                    expect(params).to.have.property('TableName', this.dynamoDBTable);
-                    expect(params).to.haveOwnProperty('Item');
-                    expect(params.Item).to.have.property(this.partitionKeyName, settings.userId);
-                    const storesAttributes = currentItem.storesAttributes;
-                    if (storesAttributes) {
-                        for (const att in storesAttributes) {
-                            if (storesAttributes.hasOwnProperty(att)) {
-                                const storedAttr = params.Item[this.attributesName][att];
-                                const expectedAttr = storesAttributes[att];
-                                if (typeof expectedAttr === 'function') {
-                                    if (!expectedAttr(storedAttr)) {
-                                        fail(`the stored attribute ${att} did not contain the correct value. Value was: ${storedAttr}`);
-                                    }
-                                } else {
-                                    expect(storedAttr).to.be.equal(expectedAttr);
-                                }
-                            }
-                        }
-                    }
-                    callback(null, {});
-                };
-                dynamoDBMock.getMock = (params : GetItemInput, callback) => {
-                    expect(params).to.have.property('TableName', this.dynamoDBTable);
-                    expect(params).to.haveOwnProperty('Key');
-                    expect(params.Key).to.have.property(this.partitionKeyName, settings.userId);
+            this.mockDynamoDB(settings, currentItem);
 
-                    const Item = {};
-                    Item[this.partitionKeyName] = settings.userId;
-                    Item[this.attributesName] = currentItem.withStoredAttributes || {};
-                    callback(null, {TableName: this.dynamoDBTable, Item});
-                };
-            }
+            const interceptors = this.mockProfileAPI(currentItem);
 
             lambdaLocal.execute({
                 event: request,
@@ -169,6 +148,8 @@ export class AlexaTest {
                 if (response.toJSON) {
                     response = response.toJSON();
                 }
+
+                interceptors.forEach((value) => nock.removeInterceptor(value));
 
                 // console.log(response);
 
@@ -183,6 +164,83 @@ export class AlexaTest {
                 this.runSingleTest(settings, sequence, sequenceIndex + 1, response.sessionAttributes, done);
             }).catch(done);
         }
+    }
+
+    private mockDynamoDB(settings : TestSettings, currentItem : SequenceItem) : void {
+        if (this.dynamoDBTable) {
+            dynamoDBMock.putMock = (params : PutItemInput, callback : Function) => {
+                expect(params).to.have.property('TableName', this.dynamoDBTable);
+                expect(params).to.haveOwnProperty('Item');
+                expect(params.Item).to.have.property(this.partitionKeyName, settings.userId);
+                const storesAttributes = currentItem.storesAttributes;
+                if (storesAttributes) {
+                    for (const att in storesAttributes) {
+                        if (storesAttributes.hasOwnProperty(att)) {
+                            const storedAttr = params.Item[this.attributesName][att];
+                            const expectedAttr = storesAttributes[att];
+                            if (typeof expectedAttr === 'function') {
+                                if (!expectedAttr(storedAttr)) {
+                                    fail(`the stored attribute ${att} did not contain the correct value. Value was: ${storedAttr}`);
+                                }
+                            } else {
+                                expect(storedAttr).to.be.equal(expectedAttr);
+                            }
+                        }
+                    }
+                }
+                callback(null, {});
+            };
+            dynamoDBMock.getMock = (params : GetItemInput, callback) => {
+                expect(params).to.have.property('TableName', this.dynamoDBTable);
+                expect(params).to.haveOwnProperty('Key');
+                expect(params.Key).to.have.property(this.partitionKeyName, settings.userId);
+
+                const Item = {};
+                Item[this.partitionKeyName] = settings.userId;
+                Item[this.attributesName] = currentItem.withStoredAttributes || {};
+                callback(null, {TableName: this.dynamoDBTable, Item});
+            };
+        }
+    }
+
+    private mockProfileAPI(currentItem : SequenceItem) : object[] {
+        const profileMock = nock('https://api.amazonalexa.com').persist();
+        const nameInterceptor = profileMock.get('/v2/accounts/~current/settings/Profile.name');
+        const givenNameInterceptor = profileMock.get('/v2/accounts/~current/settings/Profile.givenName');
+        const emailInterceptor = profileMock.get('/v2/accounts/~current/settings/Profile.email');
+        const mobileNumberInterceptor = profileMock.get('/v2/accounts/~current/settings/Profile.mobileNumber');
+
+        if (currentItem.withProfile && currentItem.withProfile.name) {
+            nameInterceptor.reply(200, () => {
+                return JSON.stringify(currentItem.withProfile.name);
+            });
+        } else {
+            nameInterceptor.reply(401, {});
+        }
+        if (currentItem.withProfile && currentItem.withProfile.givenName) {
+            givenNameInterceptor.reply(200, () => {
+                return JSON.stringify(currentItem.withProfile.givenName);
+            });
+        } else {
+            givenNameInterceptor.reply(401, {});
+        }
+        if (currentItem.withProfile && currentItem.withProfile.email) {
+            emailInterceptor.reply(200, () => {
+                return JSON.stringify(currentItem.withProfile.email);
+            });
+        } else {
+            emailInterceptor.reply(401, {});
+        }
+        if (currentItem.withProfile && currentItem.withProfile.mobileNumber) {
+            mobileNumberInterceptor.reply(200, () => {
+                return JSON.stringify(currentItem.withProfile.mobileNumber);
+            });
+        } else {
+            mobileNumberInterceptor.reply(401, {});
+        }
+        return [
+            nameInterceptor, givenNameInterceptor, emailInterceptor, mobileNumberInterceptor,
+        ];
     }
 
 }

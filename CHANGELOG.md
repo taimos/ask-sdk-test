@@ -1,5 +1,6 @@
 
 ## current master
+* add `withProfile` option to test ProfileAPI
 
 ## 2.0.2
 * add supportedInterfaces to request builder
