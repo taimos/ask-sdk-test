@@ -106,7 +106,7 @@ class AlexaTest {
             // adds values from withSessionAttributes to the session
             if (currentItem.withSessionAttributes) {
                 for (const newAttribute in currentItem.withSessionAttributes) {
-                    if (currentItem.withSessionAttributes.hasOwnProperty(newAttribute) && !request.session.attributes.hasOwnProperty(newAttribute)) {
+                    if (currentItem.withSessionAttributes.hasOwnProperty(newAttribute)) {
                         request.session.attributes[newAttribute] = currentItem.withSessionAttributes[newAttribute];
                     }
                 }

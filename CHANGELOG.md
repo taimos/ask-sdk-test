@@ -1,6 +1,7 @@
 
 ## current master
 * add `withProfile` option to test ProfileAPI
+* allow overriding of session attributes in `withSessionAttributes`
 
 ## 2.0.2
 * add supportedInterfaces to request builder
