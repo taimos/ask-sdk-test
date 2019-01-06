@@ -1,5 +1,8 @@
 
 ## current master
+* fix default values for persistence keys to match ASK defaults
+
+## 2.0.3
 * add `withProfile` option to test ProfileAPI
 * allow overriding of session attributes in `withSessionAttributes`
 
