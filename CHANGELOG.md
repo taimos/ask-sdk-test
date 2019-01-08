@@ -1,5 +1,10 @@
 
 ## current master
+
+## 2.0.5
+* fix `nock` dependency
+
+## 2.0.4
 * fix default values for persistence keys to match ASK defaults
 
 ## 2.0.3

@@ -61,8 +61,8 @@ class AlexaTest {
     /**
      * Activates mocking of DynamoDB backed attributes
      * @param {string} tableName name of the DynamoDB Table
-     * @param {string} partitionKeyName the key to be used as id (default: userId)
-     * @param {string} attributesName the key to be used for the attributes (default: mapAttr)
+     * @param {string} partitionKeyName the key to be used as id (default: id)
+     * @param {string} attributesName the key to be used for the attributes (default: attributes)
      */
     withDynamoDBPersistence(tableName, partitionKeyName, attributesName) {
         'use strict';
@@ -70,8 +70,8 @@ class AlexaTest {
             throw "'tableName' argument must be provided.";
         }
         this.dynamoDBTable = tableName;
-        this.partitionKeyName = partitionKeyName || 'userId';
-        this.attributesName = attributesName || 'mapAttr';
+        this.partitionKeyName = partitionKeyName || 'id';
+        this.attributesName = attributesName || 'attributes';
         return this;
     }
     test(sequence, testDescription) {
