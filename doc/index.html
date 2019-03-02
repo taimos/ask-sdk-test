@@ -67,7 +67,7 @@
 				<a href="https://badge.fury.io/js/ask-sdk-test"><img src="https://badge.fury.io/js/ask-sdk-test.svg" alt="npm version"></a></p>
 				<p>This framework makes it easy to create full-coverage black box tests for an Alexa skill using <a href="https://mochajs.org/">Mocha</a>.</p>
 				<p>Here&#39;s an example of what a test might look like with the test framework.</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings} <span class="hljs-keyword">from</span> <span class="hljs-string">'ask-sdk-test'</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings} <span class="hljs-keyword">from</span> <span class="hljs-string">'ask-sdk-test'</span>;
 <span class="hljs-keyword">import</span> {handler <span class="hljs-keyword">as</span> skillHandler} <span class="hljs-keyword">from</span> <span class="hljs-string">'./helloworld'</span>;
 
 <span class="hljs-comment">// initialize the testing framework</span>
@@ -89,8 +89,7 @@ describe(<span class="hljs-string">'LaunchRequest'</span>, <span class="hljs-fun
             shouldEndSession: <span class="hljs-literal">true</span>,
         },
     ]);
-});
-</code></pre>
+});</code></pre>
 				<h2 id="how-to">How To</h2>
 				<p>Install the package as a dev dependency with <code>npm install ask-sdk-test --save-dev</code>.</p>
 				<p>Write tests in a Typescript file and run them with Mocha. For example, if your test is at &#39;test/skill.spec.ts&#39;, run <code>mocha --require node_modules/ts-node/register/index.js test/skill.spec.ts</code>.</p>

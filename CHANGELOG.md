@@ -1,6 +1,7 @@
 
 ## current master
-* fix throw correct error when not slot elicitaion fails
+* fix: throw correct error when slot elicitation fails
+* update dependencies
 
 ## 2.0.5
 * fix `nock` dependency
