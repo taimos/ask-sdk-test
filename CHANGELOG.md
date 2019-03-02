@@ -1,5 +1,7 @@
 
 ## current master
+
+## 2.1.0
 * fix: throw correct error when slot elicitation fails
 * update dependencies
 
