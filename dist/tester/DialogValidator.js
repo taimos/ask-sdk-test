@@ -14,6 +14,13 @@ class DialogValidator extends types_1.ResponseValidator {
             const slot = elicitSlotDirective ? elicitSlotDirective.slotToElicit : '';
             chai_1.expect(slot).to.equal(currentItem.elicitsSlot, `The response did not ask Alexa to elicit the slot ${currentItem.elicitsSlot}`);
         }
+        if (currentItem.elicitsForIntent) {
+            const elicitSlotDirective = response.response.directives
+                ? response.response.directives.find((value) => value.type === 'Dialog.ElicitSlot')
+                : undefined;
+            const intent = elicitSlotDirective ? elicitSlotDirective.updatedIntent.name : '';
+            chai_1.expect(intent).to.equal(currentItem.elicitsForIntent, `The response did not ask Alexa to elicit a slot for the intent ${currentItem.elicitsForIntent}`);
+        }
         if (currentItem.confirmsSlot) {
             const confirmSlotDirective = response.response.directives
                 ? response.response.directives.find((value) => value.type === 'Dialog.ConfirmSlot')

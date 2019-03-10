@@ -35,6 +35,8 @@ export interface SequenceItem {
     ignoreQuestionCheck?: boolean;
     /** Tests that the response asks Alexa to elicit the given slot. */
     elicitsSlot?: string;
+    /** Tests that the response asks Alexa to elicit the a slot of the given intent. */
+    elicitsForIntent?: string;
     /** Tests that the response asks Alexa to confirm the given slot. */
     confirmsSlot?: string;
     /** Tests that the response asks Alexa to confirm the intent. */

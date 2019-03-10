@@ -1,5 +1,8 @@
 
 ## current master
+* feat: add `elicitsForIntent` to support intent chaining
+* feat: add `withUserAccessToken` to provide account linking (fix #6)
+* update dependencies
 
 ## 2.1.0
 * fix: throw correct error when slot elicitation fails
