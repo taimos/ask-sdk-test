@@ -2,9 +2,9 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import {dialog, ResponseEnvelope} from 'ask-sdk-model';
-import {expect} from 'chai';
-import {ResponseValidator, SequenceItem} from '../types';
+import { dialog, ResponseEnvelope } from 'ask-sdk-model';
+import { expect } from 'chai';
+import { ResponseValidator, SequenceItem } from '../types';
 
 export class DialogValidator extends ResponseValidator {
 

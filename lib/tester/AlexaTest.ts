@@ -2,24 +2,24 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import {RequestEnvelope} from 'ask-sdk-model';
-import {fail} from 'assert';
+import { RequestEnvelope } from 'ask-sdk-model';
+import { fail } from 'assert';
 import * as AWSMOCK from 'aws-sdk-mock';
-import {DocumentClient} from 'aws-sdk/lib/dynamodb/document_client';
-import {expect} from 'chai';
+import { DocumentClient } from 'aws-sdk/lib/dynamodb/document_client';
+import { expect } from 'chai';
 import * as lambdaLocal from 'lambda-local';
-import {it} from 'mocha';
+import { it } from 'mocha';
 import * as nock from 'nock';
-import {v4} from 'uuid';
-import {ResponseValidator, SequenceItem, SkillSettings} from '../types';
-import {AudioPlayerValidator} from './AudioPlayerValidator';
-import {CardValidator} from './CardValidator';
-import {DialogValidator} from './DialogValidator';
-import {EndSessionValidator} from './EndSessionValidator';
-import {QuestionMarkValidator} from './QuestionMarkValidator';
-import {SessionAttributeValidator} from './SessionAttributeValidator';
-import {SpeechValidator} from './SpeechValidator';
-import {VideoAppValidator} from './VideoAppValidator';
+import { v4 } from 'uuid';
+import { ResponseValidator, SequenceItem, SkillSettings } from '../types';
+import { AudioPlayerValidator } from './AudioPlayerValidator';
+import { CardValidator } from './CardValidator';
+import { DialogValidator } from './DialogValidator';
+import { EndSessionValidator } from './EndSessionValidator';
+import { QuestionMarkValidator } from './QuestionMarkValidator';
+import { SessionAttributeValidator } from './SessionAttributeValidator';
+import { SpeechValidator } from './SpeechValidator';
+import { VideoAppValidator } from './VideoAppValidator';
 import PutItemInput = DocumentClient.PutItemInput;
 import GetItemInput = DocumentClient.GetItemInput;
 

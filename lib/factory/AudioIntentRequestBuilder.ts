@@ -2,10 +2,10 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import {interfaces, RequestEnvelope} from 'ask-sdk-model';
-import {v4} from 'uuid';
-import {SkillSettings} from '../types';
-import {IntentRequestBuilder} from './IntentRequestBuilder';
+import { interfaces, RequestEnvelope } from 'ask-sdk-model';
+import { v4 } from 'uuid';
+import { SkillSettings } from '../types';
+import { IntentRequestBuilder } from './IntentRequestBuilder';
 import PlayerActivity = interfaces.audioplayer.PlayerActivity;
 
 export class AudioPlayerResumeIntentRequestBuilder extends IntentRequestBuilder {

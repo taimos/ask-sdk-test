@@ -2,9 +2,9 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import {Context, Request, RequestEnvelope, Session} from 'ask-sdk-model';
-import {v4} from 'uuid';
-import {InterfaceSettings, SkillSettings} from '../types';
+import { Context, Request, RequestEnvelope, Session } from 'ask-sdk-model';
+import { v4 } from 'uuid';
+import { InterfaceSettings, SkillSettings } from '../types';
 
 export abstract class RequestBuilder {
 

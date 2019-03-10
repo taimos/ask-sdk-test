@@ -2,10 +2,10 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import {Request, Slot} from 'ask-sdk-model';
-import {v4} from 'uuid';
-import {SkillSettings} from '../types';
-import {RequestBuilder} from './RequestBuilder';
+import { Request, Slot } from 'ask-sdk-model';
+import { v4 } from 'uuid';
+import { SkillSettings } from '../types';
+import { RequestBuilder } from './RequestBuilder';
 
 export class IntentRequestBuilder extends RequestBuilder {
 

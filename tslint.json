@@ -14,8 +14,6 @@
     "arrow-return-shorthand": true,
     "align": [
       true,
-      "parameters",
-      "arguments",
       "statements"
     ],
     "ban-comma-operator": true,
@@ -42,15 +40,12 @@
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+      "spaces",
+      2
     ],
     "interface-over-type-literal": false,
     "jsdoc-format": true,
     "label-position": true,
-    "max-classes-per-file": [
-      true,
-      5
-    ],
     "max-line-length": [
       true,
       250
@@ -202,7 +197,8 @@
       "check-operator",
       "check-separator",
       "check-type",
-      "check-typecast"
+      "check-typecast",
+      "check-module"
     ]
   }
 }

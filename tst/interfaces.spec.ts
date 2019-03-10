@@ -2,8 +2,8 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import {expect} from 'chai';
-import {LaunchRequestBuilder, SkillSettings} from '../lib';
+import { expect } from 'chai';
+import { LaunchRequestBuilder, SkillSettings } from '../lib';
 
 // initialize the testing framework
 const skillSettings : SkillSettings = {
@@ -21,12 +21,12 @@ describe('Tests for request builder with interfaces', () => {
     });
 
     it('should not have AudioPlayer when disabled', () => {
-        const request = new LaunchRequestBuilder(skillSettings).withInterfaces({audio: false}).build();
+        const request = new LaunchRequestBuilder(skillSettings).withInterfaces({ audio: false }).build();
         expect(request.context.System.device.supportedInterfaces).to.not.have.property('AudioPlayer');
     });
 
     it('should have Display when activated', () => {
-        const request = new LaunchRequestBuilder(skillSettings).withInterfaces({display: true}).build();
+        const request = new LaunchRequestBuilder(skillSettings).withInterfaces({ display: true }).build();
         expect(request.context.System.device.supportedInterfaces).to.have.property('AudioPlayer');
         expect(request.context.System.device.supportedInterfaces).to.have.property('Display');
     });

@@ -2,9 +2,9 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import {ResponseEnvelope} from 'ask-sdk-model';
-import {fail} from 'assert';
-import {ResponseValidator, SequenceItem} from '../types';
+import { ResponseEnvelope } from 'ask-sdk-model';
+import { fail } from 'assert';
+import { ResponseValidator, SequenceItem } from '../types';
 
 export class EndSessionValidator extends ResponseValidator {
     public validate(currentItem : SequenceItem, response : ResponseEnvelope) : void {

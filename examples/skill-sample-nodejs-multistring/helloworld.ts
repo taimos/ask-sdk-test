@@ -2,9 +2,9 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import {HandlerInput, RequestHandler, SkillBuilders} from 'ask-sdk';
-import {LambdaHandler} from 'ask-sdk-core/dist/skill/factory/BaseSkillFactory';
-import {Response} from 'ask-sdk-model';
+import { HandlerInput, RequestHandler, SkillBuilders } from 'ask-sdk';
+import { LambdaHandler } from 'ask-sdk-core/dist/skill/factory/BaseSkillFactory';
+import { Response } from 'ask-sdk-model';
 
 class LaunchRequestHandler implements RequestHandler {
 
