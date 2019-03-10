@@ -135,6 +135,11 @@ export class AlexaTest {
                 }
             }
 
+            if (currentItem.withUserAccessToken) {
+                request.session.user.accessToken = currentItem.withUserAccessToken;
+                request.context.System.user.accessToken = currentItem.withUserAccessToken;
+            }
+
             this.mockDynamoDB(settings, currentItem);
 
             const interceptors = this.mockProfileAPI(currentItem);

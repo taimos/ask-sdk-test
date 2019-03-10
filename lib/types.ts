@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import {RequestEnvelope, ResponseEnvelope} from 'ask-sdk-model';
+import { RequestEnvelope, ResponseEnvelope } from 'ask-sdk-model';
 
 export interface SkillSettings {
     appId : string;
@@ -51,7 +51,7 @@ export interface SequenceItem {
 
     /** Tests that the response contains the given attributes and values. Values can be strings, numbers, booleans or functions testing the value. */
     hasAttributes? : { [key : string] : (string | number | boolean | ((attribute : any) => boolean)) };
-    /** The session attributes to initialize the an intent request with. */
+    /** The session attributes to initialize the intent request with. */
     withSessionAttributes? : { [key : string] : any };
     /** Tests that the given attributes were stored in the DynamoDB. Values can be strings, numbers, booleans or functions testing the value. */
     storesAttributes? : { [key : string] : (string | number | boolean | ((attribute : any) => boolean)); };
@@ -85,6 +85,8 @@ export interface SequenceItem {
 
     /** The profile information for API calls. Ups will be unauthorized when this is undefined */
     withProfile? : ProfileInfo;
+    /** The accessToken to provide for account linking */
+    withUserAccessToken? : string;
 
     /** Any additional fields for custom validators */
     [key : string] : any;
