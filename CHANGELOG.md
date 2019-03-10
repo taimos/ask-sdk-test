@@ -1,5 +1,7 @@
 
 ## current master
+
+## 2.2.0
 * feat: add `elicitsForIntent` to support intent chaining
 * feat: add `withUserAccessToken` to provide account linking (fix #6)
 * update dependencies
