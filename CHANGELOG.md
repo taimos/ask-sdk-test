@@ -1,5 +1,6 @@
 
 ## current master
+* feat: add debug flag to TestSettings (add #9)
 
 ## 2.2.0
 * feat: add `elicitsForIntent` to support intent chaining
