@@ -109,6 +109,7 @@ export class AlexaTest {
                 userId: this.settings.userId,
                 handler: this.handler,
                 sessionId: `SessionId.${v4()}`,
+                debug: this.settings.debug || false,
             };
             this.runSingleTest(testSettings, sequence, 0, undefined, done);
         });
@@ -156,7 +157,9 @@ export class AlexaTest {
 
                 interceptors.forEach((value) => nock.removeInterceptor(value));
 
-                // console.log(response);
+                if (settings.debug) {
+                    console.log(JSON.stringify(response, null, 2));
+                }
 
                 this.validators.forEach((validator) => {
                     validator.validate(currentItem, response);
@@ -257,5 +260,6 @@ interface TestSettings {
     deviceId : string;
     handler : Function;
     sessionId : string;
+    debug : boolean;
 
 }

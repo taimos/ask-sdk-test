@@ -1,10 +1,17 @@
 import { RequestEnvelope, ResponseEnvelope } from 'ask-sdk-model';
 export interface SkillSettings {
+    /** The skill id */
     appId: string;
+    /** The user id to simulate */
     userId: string;
+    /** The device id to simulate */
     deviceId: string;
+    /** the locale to use when generating requests */
     locale: string;
+    /** the interfaces present for the test */
     interfaces?: InterfaceSettings;
+    /** true to print the response to the console */
+    debug?: boolean;
 }
 export interface InterfaceSettings {
     display?: boolean;
