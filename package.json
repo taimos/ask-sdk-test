@@ -24,7 +24,7 @@
         "clean": "rimraf coverage dist doc",
         "compile": "tsc -p tsconfig.json",
         "lint": "tslint -p tsconfig.json -c tslint.json",
-        "test": "nyc -x tst -e .ts --temp-directory 'coverage/nyc-output' -r html -r text-summary -r cobertura _mocha --require ts-node/register 'tst/**/*.spec.ts' 'examples/**/*-tests.ts' --reporter nyan",
+        "test": "nyc -x tst -e .ts --temp-directory 'coverage/nyc-output' -r html -r text-summary -r cobertura _mocha --require ts-node/register 'tst/**/*.spec.ts' 'examples/**/*.spec.ts' --reporter nyan",
         "doc": "typedoc --excludeExternals --mode file --out doc lib/",
         "build": "npm-run-all clean compile lint test doc",
         "preversion": "npm-run-all clean lint test",

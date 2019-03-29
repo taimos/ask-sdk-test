@@ -1,6 +1,7 @@
 
 ## current master
 * feat: add debug flag to TestSettings (add #9)
+* feat: support integration testing with real Lambda functions (add #8)
 
 ## 2.2.0
 * feat: add `elicitsForIntent` to support intent chaining

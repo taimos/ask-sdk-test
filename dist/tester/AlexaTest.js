@@ -4,6 +4,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const assert_1 = require("assert");
+const aws_sdk_1 = require("aws-sdk");
 const AWSMOCK = require("aws-sdk-mock");
 const chai_1 = require("chai");
 const lambdaLocal = require("lambda-local");
@@ -116,18 +117,21 @@ class AlexaTest {
                 request.session.user.accessToken = currentItem.withUserAccessToken;
                 request.context.System.user.accessToken = currentItem.withUserAccessToken;
             }
-            this.mockDynamoDB(settings, currentItem);
-            const interceptors = this.mockProfileAPI(currentItem);
-            lambdaLocal.execute({
-                event: request,
-                lambdaFunc: settings,
-                lambdaHandler: 'handler',
-                timeoutMs: 5000,
-            }).then((response) => {
-                if (response.toJSON) {
-                    response = response.toJSON();
-                }
-                interceptors.forEach((value) => nock.removeInterceptor(value));
+            let invoker;
+            if (typeof settings.handler === 'function') {
+                invoker = this.invokeFunction(settings, currentItem, request);
+            }
+            else if (settings.handler.startsWith('lambda:')) {
+                invoker = this.invokeLambda(settings.handler.substr(7), settings, currentItem, request);
+            }
+            else if (settings.handler.startsWith('cfn:')) {
+                const cfnParts = settings.handler.split(':');
+                invoker = this.invokeLambdaCloudformation(cfnParts[1], cfnParts[2], settings, currentItem, request);
+            }
+            else {
+                throw 'Invalid handler configuration';
+            }
+            invoker.then((response) => {
                 if (settings.debug) {
                     console.log(JSON.stringify(response, null, 2));
                 }
@@ -140,6 +144,54 @@ class AlexaTest {
                 this.runSingleTest(settings, sequence, sequenceIndex + 1, response.sessionAttributes, done);
             }).catch(done);
         }
+    }
+    async invokeLambdaCloudformation(stackName, logicalName, settings, currentItem, request) {
+        const cfnRes = await new aws_sdk_1.CloudFormation().describeStackResource({
+            StackName: stackName,
+            LogicalResourceId: logicalName,
+        }).promise();
+        if (cfnRes.StackResourceDetail.ResourceType !== 'AWS::Lambda::Function') {
+            throw 'CloudFormation resource must be of type AWS::Lambda::Function';
+        }
+        const lambdaName = cfnRes.StackResourceDetail.PhysicalResourceId;
+        return this.invokeLambda(lambdaName, settings, currentItem, request);
+    }
+    async invokeLambda(name, settings, currentItem, request) {
+        if (this.containsMockSettings(currentItem)) {
+            throw 'Invalid test configuration found. Cannot mock DynamoDB or API calls when invoking remotely.';
+        }
+        const res = await new aws_sdk_1.Lambda().invoke({
+            FunctionName: name,
+            InvocationType: 'RequestResponse',
+            LogType: 'None',
+            Payload: JSON.stringify(request),
+        }).promise();
+        const parsedResponse = JSON.parse(res.Payload.toString());
+        if (res.FunctionError) {
+            console.log(JSON.stringify(parsedResponse, null, 2));
+        }
+        return parsedResponse;
+    }
+    containsMockSettings(currentItem) {
+        return currentItem.hasOwnProperty('storesAttributes') ||
+            currentItem.hasOwnProperty('withProfile') ||
+            currentItem.hasOwnProperty('withStoredAttributes');
+    }
+    invokeFunction(settings, currentItem, request) {
+        this.mockDynamoDB(settings, currentItem);
+        const interceptors = this.mockProfileAPI(currentItem);
+        return lambdaLocal.execute({
+            event: request,
+            lambdaFunc: settings,
+            lambdaHandler: 'handler',
+            timeoutMs: 5000,
+        }).then((response) => {
+            if (response.toJSON) {
+                response = response.toJSON();
+            }
+            interceptors.forEach((value) => nock.removeInterceptor(value));
+            return response;
+        });
     }
     mockDynamoDB(settings, currentItem) {
         if (this.dynamoDBTable) {

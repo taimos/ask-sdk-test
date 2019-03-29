@@ -6,7 +6,7 @@ export declare class AlexaTest {
     private dynamoDBTable;
     private partitionKeyName;
     private attributesName;
-    constructor(handler: Function, settings: SkillSettings);
+    constructor(handler: Function | string, settings: SkillSettings);
     addValidator(validator: ResponseValidator): AlexaTest;
     /**
      * Activates mocking of DynamoDB backed attributes
@@ -17,6 +17,10 @@ export declare class AlexaTest {
     withDynamoDBPersistence(tableName: string, partitionKeyName?: string, attributesName?: string): AlexaTest;
     test(sequence: SequenceItem[], testDescription?: string): void;
     private runSingleTest;
+    private invokeLambdaCloudformation;
+    private invokeLambda;
+    private containsMockSettings;
+    private invokeFunction;
     private mockDynamoDB;
     private mockProfileAPI;
 }
