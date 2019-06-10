@@ -34,6 +34,8 @@ describe('LaunchRequest', () => {
 });
 ```
 
+If you are writing your Alexa Skills in Python, check out https://github.com/BananaNosh/py_ask_sdk_test
+
 ## How To
 Install the package as a dev dependency with `npm install ask-sdk-test --save-dev`.
 
@@ -43,4 +45,4 @@ For some simple examples, see the 'examples' directory.
 
 ## History
 
-This framework is based on the [alexa-skill-test-framework](https://github.com/BrianMacIntosh/alexa-skill-test-framework) by Brian MacIntosh  and rewritten for Typescript and the ASK SDK v2
+This framework is based on the [alexa-skill-test-framework](https://github.com/BrianMacIntosh/alexa-skill-test-framework) by Brian MacIntosh and rewritten for Typescript and the ASK SDK v2.
