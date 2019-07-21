@@ -9,6 +9,9 @@ const types_1 = require("../types");
 class AudioPlayerValidator extends types_1.ResponseValidator {
     validate(currentItem, response) {
         if (currentItem.playsStream) {
+            if (!response.response.directives) {
+                assert_1.fail('the response did not contain any directives');
+            }
             const playDirective = response.response.directives.find((value) => value.type === 'AudioPlayer.Play');
             if (!playDirective) {
                 assert_1.fail('the response did not play a stream');
@@ -31,11 +34,14 @@ class AudioPlayerValidator extends types_1.ResponseValidator {
             }
         }
         if (currentItem.stopsStream) {
-            if (!response.response.directives.find((value) => value.type === 'AudioPlayer.Stop')) {
+            if (!response.response.directives || !response.response.directives.find((value) => value.type === 'AudioPlayer.Stop')) {
                 assert_1.fail('the response did not stop the stream');
             }
         }
         if (currentItem.clearsQueue) {
+            if (!response.response.directives) {
+                assert_1.fail('the response did not contain any directives');
+            }
             const clearDirective = response.response.directives.find((value) => value.type === 'AudioPlayer.ClearQueue');
             if (!clearDirective) {
                 assert_1.fail('the response did not clear the audio queue');

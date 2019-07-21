@@ -1,5 +1,9 @@
 
 ## current master
+* update libraries
+* null check for `AudioPlayerValidatior`
+
+## 2.3.0
 * feat: add debug flag to TestSettings (add #9)
 * feat: support integration testing with real Lambda functions (add #8)
 

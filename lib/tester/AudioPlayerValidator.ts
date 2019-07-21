@@ -10,6 +10,9 @@ import { ResponseValidator, SequenceItem } from '../types';
 export class AudioPlayerValidator extends ResponseValidator {
     public validate(currentItem : SequenceItem, response : ResponseEnvelope) : void {
         if (currentItem.playsStream) {
+            if (!response.response.directives) {
+                fail('the response did not contain any directives');
+            }
             const playDirective = <interfaces.audioplayer.PlayDirective> response.response.directives.find((value) => value.type === 'AudioPlayer.Play');
             if (!playDirective) {
                 fail('the response did not play a stream');
@@ -36,12 +39,15 @@ export class AudioPlayerValidator extends ResponseValidator {
         }
 
         if (currentItem.stopsStream) {
-            if (!response.response.directives.find((value) => value.type === 'AudioPlayer.Stop')) {
+            if (!response.response.directives || !response.response.directives.find((value) => value.type === 'AudioPlayer.Stop')) {
                 fail('the response did not stop the stream');
             }
         }
 
         if (currentItem.clearsQueue) {
+            if (!response.response.directives) {
+                fail('the response did not contain any directives');
+            }
             const clearDirective = <interfaces.audioplayer.ClearQueueDirective> response.response.directives.find((value) => value.type === 'AudioPlayer.ClearQueue');
             if (!clearDirective) {
                 fail('the response did not clear the audio queue');
