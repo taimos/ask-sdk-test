@@ -29,6 +29,18 @@ class IntentRequestBuilder extends RequestBuilder_1.RequestBuilder {
         }
         return this;
     }
+    withSlotConfirmation(name, value, confirmationStatus) {
+        if (!this.slots) {
+            this.slots = {};
+        }
+        if (!this.slots[name]) {
+            this.slots[name] = { name, value, confirmationStatus: confirmationStatus };
+        }
+        else {
+            this.slots[name].value = value;
+        }
+        return this;
+    }
     withSlotResolution(name, value, slotType, id) {
         this.withSlot(name, value);
         const authority = `amzn1.er-authority.echo-sdk.${this.settings.appId}.${slotType}`;

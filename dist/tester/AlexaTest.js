@@ -186,9 +186,9 @@ class AlexaTest {
             lambdaHandler: 'handler',
             timeoutMs: 5000,
         }).then((response) => {
-            if (response.toJSON) {
-                response = response.toJSON();
-            }
+            // if (response.toJSON) {
+            //     response = response.toJSON();
+            // }
             interceptors.forEach((value) => nock.removeInterceptor(value));
             return response;
         });
