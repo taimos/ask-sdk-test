@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { Request, Slot, SlotConfirmationStatus } from 'ask-sdk-model';
+import { Request, Slot, SlotConfirmationStatus, IntentConfirmationStatus } from 'ask-sdk-model';
 import { v4 } from 'uuid';
 import { SkillSettings } from '../types';
 import { RequestBuilder } from './RequestBuilder';
@@ -11,10 +11,12 @@ export class IntentRequestBuilder extends RequestBuilder {
 
     private intentName : string;
     private slots : { [key : string] : Slot; };
+    private confirmationStatus : IntentConfirmationStatus;
 
     constructor(settings : SkillSettings, intentName : string) {
         super(settings);
         this.intentName = intentName;
+        this.confirmationStatus = 'NONE';
     }
 
     public withEmptySlot(name : string) : IntentRequestBuilder {
@@ -92,6 +94,11 @@ export class IntentRequestBuilder extends RequestBuilder {
         return this;
     }
 
+    public withIntentConfirmation(confirmationStatus : IntentConfirmationStatus) : IntentRequestBuilder {
+        this.confirmationStatus = confirmationStatus;
+        return this;
+    }
+
     protected buildRequest() : Request {
         return {
             type: 'IntentRequest',
@@ -101,7 +108,7 @@ export class IntentRequestBuilder extends RequestBuilder {
             intent: {
                 name: this.intentName,
                 slots: this.slots,
-                confirmationStatus: 'NONE',
+                confirmationStatus: this.confirmationStatus,
             },
             dialogState: undefined,
         };
