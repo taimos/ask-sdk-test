@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { Request, Slot, SlotConfirmationStatus, IntentConfirmationStatus } from 'ask-sdk-model';
+import { IntentConfirmationStatus, Request, Slot, SlotConfirmationStatus } from 'ask-sdk-model';
 import { v4 } from 'uuid';
 import { SkillSettings } from '../types';
 import { RequestBuilder } from './RequestBuilder';
@@ -44,7 +44,7 @@ export class IntentRequestBuilder extends RequestBuilder {
             this.slots = {};
         }
         if (!this.slots[name]) {
-            this.slots[name] = {name, value, confirmationStatus: confirmationStatus};
+            this.slots[name] = {name, value, confirmationStatus};
         } else {
             this.slots[name].value = value;
         }

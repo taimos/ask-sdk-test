@@ -1,4 +1,4 @@
-import { Request, SlotConfirmationStatus, IntentConfirmationStatus } from 'ask-sdk-model';
+import { IntentConfirmationStatus, Request, SlotConfirmationStatus } from 'ask-sdk-model';
 import { SkillSettings } from '../types';
 import { RequestBuilder } from './RequestBuilder';
 export declare class IntentRequestBuilder extends RequestBuilder {

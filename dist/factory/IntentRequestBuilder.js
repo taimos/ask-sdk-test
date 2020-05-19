@@ -35,7 +35,7 @@ class IntentRequestBuilder extends RequestBuilder_1.RequestBuilder {
             this.slots = {};
         }
         if (!this.slots[name]) {
-            this.slots[name] = { name, value, confirmationStatus: confirmationStatus };
+            this.slots[name] = { name, value, confirmationStatus };
         }
         else {
             this.slots[name].value = value;
