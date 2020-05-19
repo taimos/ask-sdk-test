@@ -2,6 +2,8 @@
 ## current master
 * update libraries
 * null check for `AudioPlayerValidatior`
+* feat: add `withSlotConfirmation` to support slot confirmation
+* feat: add `withIntentConfirmation` to support intent confirmation
 
 ## 2.3.0
 * feat: add debug flag to TestSettings (add #9)
