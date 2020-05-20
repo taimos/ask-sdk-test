@@ -20,34 +20,28 @@ export class IntentRequestBuilder extends RequestBuilder {
     }
 
     public withEmptySlot(name : string) : IntentRequestBuilder {
-        if (!this.slots) {
-            this.slots = {};
-        }
-        this.slots[name] = {name, value: undefined, confirmationStatus: 'NONE'};
+        this.withSlotConfirmation(name, 'NONE');
+
         return this;
     }
 
     public withSlot(name : string, value : string) : IntentRequestBuilder {
-        if (!this.slots) {
-            this.slots = {};
-        }
-        if (!this.slots[name]) {
-            this.slots[name] = {name, value, confirmationStatus: 'NONE'};
-        } else {
-            this.slots[name].value = value;
-        }
+        this.withSlotConfirmation(name, 'NONE', value);
+
         return this;
     }
 
-    public withSlotConfirmation(name : string, value : string, confirmationStatus : SlotConfirmationStatus) : IntentRequestBuilder {
+    public withSlotConfirmation(name : string, confirmationStatus : SlotConfirmationStatus, value? : string) : IntentRequestBuilder {
         if (!this.slots) {
             this.slots = {};
         }
         if (!this.slots[name]) {
-            this.slots[name] = {name, value, confirmationStatus};
+            this.slots[name] = { name, value, confirmationStatus };
         } else {
+            this.slots[name].confirmationStatus = confirmationStatus;
             this.slots[name].value = value;
         }
+
         return this;
     }
 
