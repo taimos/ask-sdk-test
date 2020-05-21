@@ -20,15 +20,11 @@ export class IntentRequestBuilder extends RequestBuilder {
     }
 
     public withEmptySlot(name : string) : IntentRequestBuilder {
-        this.withSlotConfirmation(name, 'NONE');
-
-        return this;
+        return this.withSlotConfirmation(name, 'NONE');
     }
 
     public withSlot(name : string, value : string) : IntentRequestBuilder {
-        this.withSlotConfirmation(name, 'NONE', value);
-
-        return this;
+        return this.withSlotConfirmation(name, 'NONE', value);
     }
 
     public withSlotConfirmation(name : string, confirmationStatus : SlotConfirmationStatus, value? : string) : IntentRequestBuilder {
