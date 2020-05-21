@@ -3,6 +3,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.AlexaTest = void 0;
 const assert_1 = require("assert");
 const aws_sdk_1 = require("aws-sdk");
 const AWSMOCK = require("aws-sdk-mock");

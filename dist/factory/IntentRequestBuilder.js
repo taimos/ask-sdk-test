@@ -3,6 +3,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.IntentRequestBuilder = void 0;
 const uuid_1 = require("uuid");
 const RequestBuilder_1 = require("./RequestBuilder");
 class IntentRequestBuilder extends RequestBuilder_1.RequestBuilder {
@@ -12,12 +13,10 @@ class IntentRequestBuilder extends RequestBuilder_1.RequestBuilder {
         this.confirmationStatus = 'NONE';
     }
     withEmptySlot(name) {
-        this.withSlotConfirmation(name, 'NONE');
-        return this;
+        return this.withSlotConfirmation(name, 'NONE');
     }
     withSlot(name, value) {
-        this.withSlotConfirmation(name, 'NONE', value);
-        return this;
+        return this.withSlotConfirmation(name, 'NONE', value);
     }
     withSlotConfirmation(name, confirmationStatus, value) {
         if (!this.slots) {
