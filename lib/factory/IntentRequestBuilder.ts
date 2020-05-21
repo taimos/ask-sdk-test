@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { Request, Slot } from 'ask-sdk-model';
+import { IntentConfirmationStatus, Request, Slot, SlotConfirmationStatus } from 'ask-sdk-model';
 import { v4 } from 'uuid';
 import { SkillSettings } from '../types';
 import { RequestBuilder } from './RequestBuilder';
@@ -11,29 +11,33 @@ export class IntentRequestBuilder extends RequestBuilder {
 
     private intentName : string;
     private slots : { [key : string] : Slot; };
+    private confirmationStatus : IntentConfirmationStatus;
 
     constructor(settings : SkillSettings, intentName : string) {
         super(settings);
         this.intentName = intentName;
+        this.confirmationStatus = 'NONE';
     }
 
     public withEmptySlot(name : string) : IntentRequestBuilder {
-        if (!this.slots) {
-            this.slots = {};
-        }
-        this.slots[name] = {name, value: undefined, confirmationStatus: 'NONE'};
-        return this;
+        return this.withSlotConfirmation(name, 'NONE');
     }
 
     public withSlot(name : string, value : string) : IntentRequestBuilder {
+        return this.withSlotConfirmation(name, 'NONE', value);
+    }
+
+    public withSlotConfirmation(name : string, confirmationStatus : SlotConfirmationStatus, value? : string) : IntentRequestBuilder {
         if (!this.slots) {
             this.slots = {};
         }
         if (!this.slots[name]) {
-            this.slots[name] = {name, value, confirmationStatus: 'NONE'};
+            this.slots[name] = { name, value, confirmationStatus };
         } else {
+            this.slots[name].confirmationStatus = confirmationStatus;
             this.slots[name].value = value;
         }
+
         return this;
     }
 
@@ -80,6 +84,11 @@ export class IntentRequestBuilder extends RequestBuilder {
         return this;
     }
 
+    public withIntentConfirmation(confirmationStatus : IntentConfirmationStatus) : IntentRequestBuilder {
+        this.confirmationStatus = confirmationStatus;
+        return this;
+    }
+
     protected buildRequest() : Request {
         return {
             type: 'IntentRequest',
@@ -89,7 +98,7 @@ export class IntentRequestBuilder extends RequestBuilder {
             intent: {
                 name: this.intentName,
                 slots: this.slots,
-                confirmationStatus: 'NONE',
+                confirmationStatus: this.confirmationStatus,
             },
             dialogState: undefined,
         };

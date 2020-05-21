@@ -9,22 +9,25 @@ class IntentRequestBuilder extends RequestBuilder_1.RequestBuilder {
     constructor(settings, intentName) {
         super(settings);
         this.intentName = intentName;
+        this.confirmationStatus = 'NONE';
     }
     withEmptySlot(name) {
-        if (!this.slots) {
-            this.slots = {};
-        }
-        this.slots[name] = { name, value: undefined, confirmationStatus: 'NONE' };
+        this.withSlotConfirmation(name, 'NONE');
         return this;
     }
     withSlot(name, value) {
+        this.withSlotConfirmation(name, 'NONE', value);
+        return this;
+    }
+    withSlotConfirmation(name, confirmationStatus, value) {
         if (!this.slots) {
             this.slots = {};
         }
         if (!this.slots[name]) {
-            this.slots[name] = { name, value, confirmationStatus: 'NONE' };
+            this.slots[name] = { name, value, confirmationStatus };
         }
         else {
+            this.slots[name].confirmationStatus = confirmationStatus;
             this.slots[name].value = value;
         }
         return this;
@@ -69,6 +72,10 @@ class IntentRequestBuilder extends RequestBuilder_1.RequestBuilder {
         });
         return this;
     }
+    withIntentConfirmation(confirmationStatus) {
+        this.confirmationStatus = confirmationStatus;
+        return this;
+    }
     buildRequest() {
         return {
             type: 'IntentRequest',
@@ -78,7 +85,7 @@ class IntentRequestBuilder extends RequestBuilder_1.RequestBuilder {
             intent: {
                 name: this.intentName,
                 slots: this.slots,
-                confirmationStatus: 'NONE',
+                confirmationStatus: this.confirmationStatus,
             },
             dialogState: undefined,
         };
