@@ -1,5 +1,7 @@
 
 ## current master
+
+## 2.4.0
 * update libraries
 * null check for `AudioPlayerValidatior`
 * feat: add `withSlotConfirmation` to support slot confirmation
