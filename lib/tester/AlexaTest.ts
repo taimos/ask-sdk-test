@@ -15,6 +15,7 @@ import { it } from 'mocha';
 import * as nock from 'nock';
 import { v4 } from 'uuid';
 import { ResponseValidator, SequenceItem, SkillSettings } from '../types';
+import { AplValidator } from './AplValidator';
 import { AudioPlayerValidator } from './AudioPlayerValidator';
 import { CardValidator } from './CardValidator';
 import { DialogValidator } from './DialogValidator';
@@ -67,6 +68,7 @@ export class AlexaTest {
             new SessionAttributeValidator(),
             new QuestionMarkValidator(),
             new EndSessionValidator(),
+            new AplValidator(),
             new AudioPlayerValidator(),
             new VideoAppValidator(),
             new CardValidator(),

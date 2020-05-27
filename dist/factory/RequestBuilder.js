@@ -78,7 +78,7 @@ class RequestBuilder {
             ctx.System.device.supportedInterfaces.VideoApp = {};
         }
         if (this.settings.interfaces.apl) {
-            ctx.System.device.supportedInterfaces['Alexa.Presentation.APL'] = { runtime: { maxVersion: '1.0' } };
+            ctx.System.device.supportedInterfaces['Alexa.Presentation.APL'] = { runtime: { maxVersion: '1.3' } };
         }
         return ctx;
     }

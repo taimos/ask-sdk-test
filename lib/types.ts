@@ -91,6 +91,8 @@ export interface SequenceItem {
 
     /** Tests that the VideoPlayer is used to play a stream. */
     playsVideo? : PlayVideoConfig;
+    /** Tests that the RenderDirective is used to . */
+    renderDocument? : RenderDocumentConfig;
 
     /** The profile information for API calls. Ups will be unauthorized when this is undefined */
     withProfile? : ProfileInfo;
@@ -99,6 +101,12 @@ export interface SequenceItem {
 
     /** Any additional fields for custom validators */
     [key : string] : any;
+}
+
+export interface RenderDocumentConfig {
+    token? : string;
+    document? : (document : any) => boolean;
+    hasDataSources? : { [key : string] : (datasource : any) => boolean };
 }
 
 export interface PlayStreamConfig {

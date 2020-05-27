@@ -12,12 +12,10 @@ class IntentRequestBuilder extends RequestBuilder_1.RequestBuilder {
         this.confirmationStatus = 'NONE';
     }
     withEmptySlot(name) {
-        this.withSlotConfirmation(name, 'NONE');
-        return this;
+        return this.withSlotConfirmation(name, 'NONE');
     }
     withSlot(name, value) {
-        this.withSlotConfirmation(name, 'NONE', value);
-        return this;
+        return this.withSlotConfirmation(name, 'NONE', value);
     }
     withSlotConfirmation(name, confirmationStatus, value) {
         if (!this.slots) {
