@@ -1,6 +1,6 @@
 
 ## current master
-* feat: add `renderDocument` parameter used to asset templates in `AplValidator` class.
+* feat: add `renderDocument` parameter used to assert templates in `AplValidator` class.
 * feat: add `AplUserEventRequestBuilder` to provide support for touch events.
 
 ## 2.4.0
