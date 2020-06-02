@@ -3,7 +3,6 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AlexaTest = void 0;
 const assert_1 = require("assert");
 const aws_sdk_1 = require("aws-sdk");
 const AWSMOCK = require("aws-sdk-mock");
@@ -12,6 +11,7 @@ const lambdaLocal = require("lambda-local");
 const mocha_1 = require("mocha");
 const nock = require("nock");
 const uuid_1 = require("uuid");
+const AplValidator_1 = require("./AplValidator");
 const AudioPlayerValidator_1 = require("./AudioPlayerValidator");
 const CardValidator_1 = require("./CardValidator");
 const DialogValidator_1 = require("./DialogValidator");
@@ -51,6 +51,7 @@ class AlexaTest {
             new SessionAttributeValidator_1.SessionAttributeValidator(),
             new QuestionMarkValidator_1.QuestionMarkValidator(),
             new EndSessionValidator_1.EndSessionValidator(),
+            new AplValidator_1.AplValidator(),
             new AudioPlayerValidator_1.AudioPlayerValidator(),
             new VideoAppValidator_1.VideoAppValidator(),
             new CardValidator_1.CardValidator(),

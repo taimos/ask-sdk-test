@@ -86,12 +86,21 @@ export interface SequenceItem {
     clearsQueue?: string;
     /** Tests that the VideoPlayer is used to play a stream. */
     playsVideo?: PlayVideoConfig;
+    /** Tests that the RenderDirective is used to . */
+    renderDocument?: RenderDocumentConfig;
     /** The profile information for API calls. Ups will be unauthorized when this is undefined */
     withProfile?: ProfileInfo;
     /** The accessToken to provide for account linking */
     withUserAccessToken?: string;
     /** Any additional fields for custom validators */
     [key: string]: any;
+}
+export interface RenderDocumentConfig {
+    token?: string;
+    document?: (document: any) => boolean;
+    hasDataSources?: {
+        [key: string]: (datasource: any) => boolean;
+    };
 }
 export interface PlayStreamConfig {
     behavior?: string;

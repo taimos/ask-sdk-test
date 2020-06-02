@@ -3,7 +3,6 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RequestBuilder = void 0;
 const uuid_1 = require("uuid");
 class RequestBuilder {
     constructor(settings) {
@@ -79,7 +78,7 @@ class RequestBuilder {
             ctx.System.device.supportedInterfaces.VideoApp = {};
         }
         if (this.settings.interfaces.apl) {
-            ctx.System.device.supportedInterfaces['Alexa.Presentation.APL'] = { runtime: { maxVersion: '1.0' } };
+            ctx.System.device.supportedInterfaces['Alexa.Presentation.APL'] = { runtime: { maxVersion: '1.3' } };
         }
         return ctx;
     }

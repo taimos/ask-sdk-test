@@ -3,7 +3,6 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AudioPlayerPauseIntentRequestBuilder = exports.AudioPlayerResumeIntentRequestBuilder = void 0;
 const IntentRequestBuilder_1 = require("./IntentRequestBuilder");
 class AudioPlayerResumeIntentRequestBuilder extends IntentRequestBuilder_1.IntentRequestBuilder {
     constructor(settings) {

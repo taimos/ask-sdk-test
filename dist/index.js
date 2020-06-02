@@ -4,18 +4,20 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 var AlexaTest_1 = require("./tester/AlexaTest");
-Object.defineProperty(exports, "AlexaTest", { enumerable: true, get: function () { return AlexaTest_1.AlexaTest; } });
+exports.AlexaTest = AlexaTest_1.AlexaTest;
 var RequestBuilder_1 = require("./factory/RequestBuilder");
-Object.defineProperty(exports, "RequestBuilder", { enumerable: true, get: function () { return RequestBuilder_1.RequestBuilder; } });
+exports.RequestBuilder = RequestBuilder_1.RequestBuilder;
 var IntentRequestBuilder_1 = require("./factory/IntentRequestBuilder");
-Object.defineProperty(exports, "IntentRequestBuilder", { enumerable: true, get: function () { return IntentRequestBuilder_1.IntentRequestBuilder; } });
+exports.IntentRequestBuilder = IntentRequestBuilder_1.IntentRequestBuilder;
 var LaunchRequestBuilder_1 = require("./factory/LaunchRequestBuilder");
-Object.defineProperty(exports, "LaunchRequestBuilder", { enumerable: true, get: function () { return LaunchRequestBuilder_1.LaunchRequestBuilder; } });
+exports.LaunchRequestBuilder = LaunchRequestBuilder_1.LaunchRequestBuilder;
 var SessionEndedRequestBuilder_1 = require("./factory/SessionEndedRequestBuilder");
-Object.defineProperty(exports, "SessionEndedRequestBuilder", { enumerable: true, get: function () { return SessionEndedRequestBuilder_1.SessionEndedRequestBuilder; } });
+exports.SessionEndedRequestBuilder = SessionEndedRequestBuilder_1.SessionEndedRequestBuilder;
 var AudioIntentRequestBuilder_1 = require("./factory/AudioIntentRequestBuilder");
-Object.defineProperty(exports, "AudioPlayerPauseIntentRequestBuilder", { enumerable: true, get: function () { return AudioIntentRequestBuilder_1.AudioPlayerPauseIntentRequestBuilder; } });
-Object.defineProperty(exports, "AudioPlayerResumeIntentRequestBuilder", { enumerable: true, get: function () { return AudioIntentRequestBuilder_1.AudioPlayerResumeIntentRequestBuilder; } });
+exports.AudioPlayerPauseIntentRequestBuilder = AudioIntentRequestBuilder_1.AudioPlayerPauseIntentRequestBuilder;
+exports.AudioPlayerResumeIntentRequestBuilder = AudioIntentRequestBuilder_1.AudioPlayerResumeIntentRequestBuilder;
+var AplUserEventRequestBuilder_1 = require("./factory/AplUserEventRequestBuilder");
+exports.AplUserEventRequestBuilder = AplUserEventRequestBuilder_1.AplUserEventRequestBuilder;
 var types_1 = require("./types");
-Object.defineProperty(exports, "ResponseValidator", { enumerable: true, get: function () { return types_1.ResponseValidator; } });
+exports.ResponseValidator = types_1.ResponseValidator;
 //# sourceMappingURL=index.js.map

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>SequenceItem | ask-sdk-test</title>
-	<meta name="description" content="Documentation for ask-sdk-test">
+	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -75,11 +75,6 @@
 			<section class="tsd-panel tsd-kind-interface">
 				<h3 class="tsd-before-signature">Indexable</h3>
 				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Any additional fields for custom validators</p>
-					</div>
-				</div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -105,6 +100,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sequenceitem.html#ignorequestioncheck" class="tsd-kind-icon">ignore<wbr>Question<wbr>Check</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sequenceitem.html#playsstream" class="tsd-kind-icon">plays<wbr>Stream</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sequenceitem.html#playsvideo" class="tsd-kind-icon">plays<wbr>Video</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sequenceitem.html#renderdocument" class="tsd-kind-icon">render<wbr>Document</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sequenceitem.html#reprompts" class="tsd-kind-icon">reprompts</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sequenceitem.html#repromptslike" class="tsd-kind-icon">reprompts<wbr>Like</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sequenceitem.html#repromptsnothing" class="tsd-kind-icon">reprompts<wbr>Nothing</a></li>
@@ -129,22 +125,17 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="callback" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> callback</h3>
-					<div class="tsd-signature tsd-kind-icon">callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ResponseEnvelope</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<div class="tsd-signature tsd-kind-icon">callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L34">types.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L34">types.ts:34</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Receives the response object from the request as a parameter. You can make custom checks against the response using any assertion library you like in here.</p>
-						</div>
-					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
 									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ResponseEnvelope</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
@@ -168,14 +159,9 @@
 					<div class="tsd-signature tsd-kind-icon">clears<wbr>Queue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L90">types.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L90">types.ts:90</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the AudioPlayer clears the queue with the given clear behavior.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="confirmsintent" class="tsd-anchor"></a>
@@ -183,14 +169,9 @@
 					<div class="tsd-signature tsd-kind-icon">confirms<wbr>Intent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L59">types.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L59">types.ts:59</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the response asks Alexa to confirm the intent.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="confirmsslot" class="tsd-anchor"></a>
@@ -198,14 +179,9 @@
 					<div class="tsd-signature tsd-kind-icon">confirms<wbr>Slot<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L57">types.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L57">types.ts:57</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the response asks Alexa to confirm the given slot.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="elicitsforintent" class="tsd-anchor"></a>
@@ -213,14 +189,9 @@
 					<div class="tsd-signature tsd-kind-icon">elicits<wbr>For<wbr>Intent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L55">types.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L55">types.ts:55</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the response asks Alexa to elicit the a slot of the given intent.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="elicitsslot" class="tsd-anchor"></a>
@@ -228,34 +199,24 @@
 					<div class="tsd-signature tsd-kind-icon">elicits<wbr>Slot<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L53">types.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L53">types.ts:53</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the response asks Alexa to elicit the given slot.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="hasattributes" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> has<wbr>Attributes</h3>
-					<div class="tsd-signature tsd-kind-icon">has<wbr>Attributes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<div class="tsd-signature tsd-kind-icon">has<wbr>Attributes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L62">types.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L62">types.ts:62</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the response contains the given attributes and values. Values can be strings, numbers, booleans or functions testing the value.</p>
-						</div>
-					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-index-signature">
-								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>attribute<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span></h5>
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></h5>
 							</li>
 						</ul>
 					</div>
@@ -266,14 +227,9 @@
 					<div class="tsd-signature tsd-kind-icon">has<wbr>Card<wbr>Content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L73">types.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L73">types.ts:73</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the card sent by the response is a simple card and has the content specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="hascardcontentlike" class="tsd-anchor"></a>
@@ -281,14 +237,9 @@
 					<div class="tsd-signature tsd-kind-icon">has<wbr>Card<wbr>Content<wbr>Like<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L75">types.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L75">types.ts:75</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the card sent by the response is a simple card and contains the content specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="hascardtext" class="tsd-anchor"></a>
@@ -296,14 +247,9 @@
 					<div class="tsd-signature tsd-kind-icon">has<wbr>Card<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L77">types.ts:77</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L77">types.ts:77</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the card sent by the response is a standard card and has the text specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="hascardtextlike" class="tsd-anchor"></a>
@@ -311,14 +257,9 @@
 					<div class="tsd-signature tsd-kind-icon">has<wbr>Card<wbr>Text<wbr>Like<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L79">types.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L79">types.ts:79</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the card sent by the response is a standard card and contains the text specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="hascardtitle" class="tsd-anchor"></a>
@@ -326,14 +267,9 @@
 					<div class="tsd-signature tsd-kind-icon">has<wbr>Card<wbr>Title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L71">types.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L71">types.ts:71</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the card sent by the response has the title specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="haslargeimageurllike" class="tsd-anchor"></a>
@@ -341,14 +277,9 @@
 					<div class="tsd-signature tsd-kind-icon">has<wbr>Large<wbr>Image<wbr>Url<wbr>Like<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L83">types.ts:83</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L83">types.ts:83</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the card sent by the response is a standard card and has a large image URL containing the string specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="hassmallimageurllike" class="tsd-anchor"></a>
@@ -356,14 +287,9 @@
 					<div class="tsd-signature tsd-kind-icon">has<wbr>Small<wbr>Image<wbr>Url<wbr>Like<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L81">types.ts:81</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L81">types.ts:81</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the card sent by the response is a standard card and has a small image URL containing the string specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="ignorequestioncheck" class="tsd-anchor"></a>
@@ -371,14 +297,9 @@
 					<div class="tsd-signature tsd-kind-icon">ignore<wbr>Question<wbr>Check<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L50">types.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L50">types.ts:50</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>If true, tests that the response speech contains a question mark when the session is kept open</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="playsstream" class="tsd-anchor"></a>
@@ -386,14 +307,9 @@
 					<div class="tsd-signature tsd-kind-icon">plays<wbr>Stream<span class="tsd-signature-symbol">:</span> <a href="playstreamconfig.html" class="tsd-signature-type">PlayStreamConfig</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L86">types.ts:86</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L86">types.ts:86</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the AudioPlayer is used to play a stream.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="playsvideo" class="tsd-anchor"></a>
@@ -401,29 +317,29 @@
 					<div class="tsd-signature tsd-kind-icon">plays<wbr>Video<span class="tsd-signature-symbol">:</span> <a href="playvideoconfig.html" class="tsd-signature-type">PlayVideoConfig</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L93">types.ts:93</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L93">types.ts:93</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the VideoPlayer is used to play a stream.</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="renderdocument" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> render<wbr>Document</h3>
+					<div class="tsd-signature tsd-kind-icon">render<wbr>Document<span class="tsd-signature-symbol">:</span> <a href="renderdocumentconfig.html" class="tsd-signature-type">RenderDocumentConfig</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L95">types.ts:95</a></li>
+						</ul>
+					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="reprompts" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> reprompts</h3>
-					<div class="tsd-signature tsd-kind-icon">reprompts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>speech<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span></div>
+					<div class="tsd-signature tsd-kind-icon">reprompts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L42">types.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L42">types.ts:42</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the reprompt output from the request is the string specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="repromptslike" class="tsd-anchor"></a>
@@ -431,14 +347,9 @@
 					<div class="tsd-signature tsd-kind-icon">reprompts<wbr>Like<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L44">types.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L44">types.ts:44</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the reprompt output from the request contains the string specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="repromptsnothing" class="tsd-anchor"></a>
@@ -446,14 +357,9 @@
 					<div class="tsd-signature tsd-kind-icon">reprompts<wbr>Nothing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L46">types.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L46">types.ts:46</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>If true, tests that the response has no reprompt output.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="request" class="tsd-anchor"></a>
@@ -461,29 +367,19 @@
 					<div class="tsd-signature tsd-kind-icon">request<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RequestEnvelope</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L31">types.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L31">types.ts:31</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The request to run. Generate these with one of the above <code>getFooRequest</code> methods.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="says" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> says</h3>
-					<div class="tsd-signature tsd-kind-icon">says<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>speech<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span></div>
+					<div class="tsd-signature tsd-kind-icon">says<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L36">types.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L36">types.ts:36</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the speech output from the request is the string specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sayslike" class="tsd-anchor"></a>
@@ -491,14 +387,9 @@
 					<div class="tsd-signature tsd-kind-icon">says<wbr>Like<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L38">types.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L38">types.ts:38</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the speech output from the request contains the string specified.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="saysnothing" class="tsd-anchor"></a>
@@ -506,14 +397,9 @@
 					<div class="tsd-signature tsd-kind-icon">says<wbr>Nothing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L40">types.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L40">types.ts:40</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>If true, tests that the response has no speech output.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="shouldendsession" class="tsd-anchor"></a>
@@ -521,14 +407,9 @@
 					<div class="tsd-signature tsd-kind-icon">should<wbr>End<wbr>Session<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L48">types.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L48">types.ts:48</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>If true, tests that the response to the request ends or does not end the session.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="stopsstream" class="tsd-anchor"></a>
@@ -536,34 +417,24 @@
 					<div class="tsd-signature tsd-kind-icon">stops<wbr>Stream<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L88">types.ts:88</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L88">types.ts:88</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the AudioPlayer is stopped.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="storesattributes" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> stores<wbr>Attributes</h3>
-					<div class="tsd-signature tsd-kind-icon">stores<wbr>Attributes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<div class="tsd-signature tsd-kind-icon">stores<wbr>Attributes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L66">types.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L66">types.ts:66</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Tests that the given attributes were stored in the DynamoDB. Values can be strings, numbers, booleans or functions testing the value.</p>
-						</div>
-					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-index-signature">
-								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>attribute<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span></h5>
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></h5>
 							</li>
 						</ul>
 					</div>
@@ -574,29 +445,19 @@
 					<div class="tsd-signature tsd-kind-icon">with<wbr>Profile<span class="tsd-signature-symbol">:</span> <a href="profileinfo.html" class="tsd-signature-type">ProfileInfo</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L96">types.ts:96</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L98">types.ts:98</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The profile information for API calls. Ups will be unauthorized when this is undefined</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="withsessionattributes" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> with<wbr>Session<wbr>Attributes</h3>
-					<div class="tsd-signature tsd-kind-icon">with<wbr>Session<wbr>Attributes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<div class="tsd-signature tsd-kind-icon">with<wbr>Session<wbr>Attributes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L64">types.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L64">types.ts:64</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The session attributes to initialize the intent request with.</p>
-						</div>
-					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -609,17 +470,12 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="withstoredattributes" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> with<wbr>Stored<wbr>Attributes</h3>
-					<div class="tsd-signature tsd-kind-icon">with<wbr>Stored<wbr>Attributes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<div class="tsd-signature tsd-kind-icon">with<wbr>Stored<wbr>Attributes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L68">types.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L68">types.ts:68</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The attributes to initialize the handler with. Used with DynamoDB mock.</p>
-						</div>
-					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -635,14 +491,9 @@
 					<div class="tsd-signature tsd-kind-icon">with<wbr>User<wbr>Access<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/taimos/ask-sdk-test/blob/6d5a6da/lib/types.ts#L98">types.ts:98</a></li>
+							<li>Defined in <a href="https://github.com/brightsparc/ask-sdk-test/blob/54e9a62/lib/types.ts#L100">types.ts:100</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The accessToken to provide for account linking</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -658,6 +509,12 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
 						<a href="../classes/alexatest.html" class="tsd-kind-icon">Alexa<wbr>Test</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/aplusereventrequestbuilder.html" class="tsd-kind-icon">Apl<wbr>User<wbr>Event<wbr>Request<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/aplvalidator.html" class="tsd-kind-icon">Apl<wbr>Validator</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/audioplayerpauseintentrequestbuilder.html" class="tsd-kind-icon">Audio<wbr>Player<wbr>Pause<wbr>Intent<wbr>Request<wbr>Builder</a>
@@ -716,6 +573,9 @@
 					<li class=" tsd-kind-interface">
 						<a href="profileinfo.html" class="tsd-kind-icon">Profile<wbr>Info</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="renderdocumentconfig.html" class="tsd-kind-icon">Render<wbr>Document<wbr>Config</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
@@ -773,6 +633,9 @@
 								<a href="sequenceitem.html#playsvideo" class="tsd-kind-icon">plays<wbr>Video</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sequenceitem.html#renderdocument" class="tsd-kind-icon">render<wbr>Document</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="sequenceitem.html#reprompts" class="tsd-kind-icon">reprompts</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -821,22 +684,13 @@
 					<li class=" tsd-kind-interface">
 						<a href="skillsettings.html" class="tsd-kind-icon">Skill<wbr>Settings</a>
 					</li>
-					<li class=" tsd-kind-interface">
+					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="testsettings.html" class="tsd-kind-icon">Test<wbr>Settings</a>
 					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#getiteminput" class="tsd-kind-icon">Get<wbr>Item<wbr>Input</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#playeractivity" class="tsd-kind-icon">Player<wbr>Activity</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#putiteminput" class="tsd-kind-icon">Put<wbr>Item<wbr>Input</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
+					<li class=" tsd-kind-object-literal tsd-is-not-exported">
 						<a href="../globals.html#dynamodbmock" class="tsd-kind-icon">dynamoDBMock</a>
 					</li>
-					<li class=" tsd-kind-object-literal">
+					<li class=" tsd-kind-object-literal tsd-is-not-exported">
 						<a href="../globals.html#upsservicemock" class="tsd-kind-icon">ups<wbr>Service<wbr>Mock</a>
 					</li>
 				</ul>
@@ -849,28 +703,62 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

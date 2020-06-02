@@ -3,7 +3,6 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IntentRequestBuilder = void 0;
 const uuid_1 = require("uuid");
 const RequestBuilder_1 = require("./RequestBuilder");
 class IntentRequestBuilder extends RequestBuilder_1.RequestBuilder {
