@@ -3,6 +3,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.AplValidator = void 0;
 const assert_1 = require("assert");
 const chai_1 = require("chai");
 const types_1 = require("../types");
@@ -14,7 +15,7 @@ class AplValidator extends types_1.ResponseValidator {
             }
             const renderedDocument = response.response.directives.find((value) => value.type === 'Alexa.Presentation.APL.RenderDocument');
             if (!renderedDocument) {
-                assert_1.fail('the response did not play a stream');
+                assert_1.fail('the response dit not contain a render directive');
             }
             const renderConfig = currentItem.renderDocument;
             if (renderConfig.token) {

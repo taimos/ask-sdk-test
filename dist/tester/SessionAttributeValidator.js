@@ -3,6 +3,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SessionAttributeValidator = void 0;
 const assert_1 = require("assert");
 const chai_1 = require("chai");
 const types_1 = require("../types");
