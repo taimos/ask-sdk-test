@@ -15,7 +15,7 @@ export class AplValidator extends ResponseValidator {
             }
             const renderedDocument = <interfaces.alexa.presentation.apl.RenderDocumentDirective> response.response.directives.find((value) => value.type === 'Alexa.Presentation.APL.RenderDocument');
             if (!renderedDocument) {
-                fail('the response dit not contain a render directive');
+                fail('the response did not contain a render directive');
             }
 
             const renderConfig = currentItem.renderDocument;
