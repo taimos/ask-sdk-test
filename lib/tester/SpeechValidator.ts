@@ -29,7 +29,7 @@ export class SpeechValidator extends ResponseValidator {
             }
         }
         if (currentItem.saysLike !== undefined) {
-            expect(actualSay.indexOf(currentItem.saysLike) >= 0, 'Speech did not contain specified text').to.be.true;
+            expect(actualSay.indexOf(currentItem.saysLike) >= 0, `Speech did not contain specified text. Expected ${actualSay} to be like ${currentItem.saysLike}`).to.be.true;
         }
         if (currentItem.saysNothing) {
             expect(actualSay, 'Should have said nothing').to.be.undefined;
@@ -54,7 +54,7 @@ export class SpeechValidator extends ResponseValidator {
             }
         }
         if (currentItem.repromptsLike !== undefined) {
-            expect(actualReprompt.indexOf(currentItem.repromptsLike) >= 0, 'Reprompt did not contain specified text').to.be.true;
+            expect(actualReprompt.indexOf(currentItem.repromptsLike) >= 0, `Reprompt did not contain specified text. Expected ${actualReprompt} to be like ${currentItem.repromptsLike}`).to.be.true;
         }
         if (currentItem.repromptsNothing) {
             expect(actualReprompt, 'Should have reprompted nothing').to.be.undefined;
