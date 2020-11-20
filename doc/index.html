@@ -70,26 +70,26 @@
 				<a href="https://badge.fury.io/js/ask-sdk-test"><img src="https://badge.fury.io/js/ask-sdk-test.svg" alt="npm version"></a></p>
 				<p>This framework makes it easy to create full-coverage black box tests for an Alexa skill using <a href="https://mochajs.org/">Mocha</a>.</p>
 				<p>Here&#39;s an example of what a test might look like with the test framework.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings} <span class="hljs-keyword">from</span> <span class="hljs-string">'ask-sdk-test'</span>;
-<span class="hljs-keyword">import</span> {handler <span class="hljs-keyword">as</span> skillHandler} <span class="hljs-keyword">from</span> <span class="hljs-string">'./helloworld'</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;ask-sdk-test&#x27;</span>;
+<span class="hljs-keyword">import</span> {handler <span class="hljs-keyword">as</span> skillHandler} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./helloworld&#x27;</span>;
 
 <span class="hljs-comment">// initialize the testing framework</span>
 <span class="hljs-keyword">const</span> skillSettings : SkillSettings = {
-    appId: <span class="hljs-string">'amzn1.ask.skill.00000000-0000-0000-0000-000000000000'</span>,
-    userId: <span class="hljs-string">'amzn1.ask.account.VOID'</span>,
-    deviceId: <span class="hljs-string">'amzn1.ask.device.VOID'</span>,
-    locale: <span class="hljs-string">'en-US'</span>,
+    <span class="hljs-attr">appId</span>: <span class="hljs-string">&#x27;amzn1.ask.skill.00000000-0000-0000-0000-000000000000&#x27;</span>,
+    <span class="hljs-attr">userId</span>: <span class="hljs-string">&#x27;amzn1.ask.account.VOID&#x27;</span>,
+    <span class="hljs-attr">deviceId</span>: <span class="hljs-string">&#x27;amzn1.ask.device.VOID&#x27;</span>,
+    <span class="hljs-attr">locale</span>: <span class="hljs-string">&#x27;en-US&#x27;</span>,
 };
 
 <span class="hljs-keyword">const</span> alexaTest = <span class="hljs-keyword">new</span> AlexaTest(skillHandler, skillSettings);
 
-describe(<span class="hljs-string">'LaunchRequest'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+describe(<span class="hljs-string">&#x27;LaunchRequest&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
     alexaTest.test([
         {
-            request: <span class="hljs-keyword">new</span> LaunchRequestBuilder(skillSettings).build(),
-            says: <span class="hljs-string">'Welcome to the Alexa Skills Kit, you can say hello!'</span>,
-            repromptsNothing: <span class="hljs-literal">true</span>,
-            shouldEndSession: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">request</span>: <span class="hljs-keyword">new</span> LaunchRequestBuilder(skillSettings).build(),
+            <span class="hljs-attr">says</span>: <span class="hljs-string">&#x27;Welcome to the Alexa Skills Kit, you can say hello!&#x27;</span>,
+            <span class="hljs-attr">repromptsNothing</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">shouldEndSession</span>: <span class="hljs-literal">true</span>,
         },
     ]);
 });</code></pre>
@@ -247,6 +247,5 @@ describe(<span class="hljs-string">'LaunchRequest'</span>, <span class="hljs-fun
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
