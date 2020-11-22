@@ -13,7 +13,7 @@ class LaunchRequestHandler implements RequestHandler {
     }
 
     public handle(handlerInput : HandlerInput) : Response {
-        return handlerInput.responseBuilder.speak('Hello World!').getResponse();
+        return handlerInput.responseBuilder.speak('Hello World!').withShouldEndSession(true).getResponse();
     }
 
 }

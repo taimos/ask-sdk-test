@@ -21,7 +21,7 @@ class SayHelloHandler implements RequestHandler {
         handlerInput.attributesManager.setPersistentAttributes(attributes);
         await handlerInput.attributesManager.savePersistentAttributes();
 
-        return handlerInput.responseBuilder.speak('Hello World!').getResponse();
+        return handlerInput.responseBuilder.speak('Hello World!').withShouldEndSession(true).getResponse();
     }
 }
 
@@ -34,7 +34,7 @@ class SayGoodbyeHandler implements RequestHandler {
 
     public async handle(handlerInput : HandlerInput) : Promise<Response> {
         const attributes = await handlerInput.attributesManager.getPersistentAttributes();
-        return handlerInput.responseBuilder.speak(`Bye ${attributes.foo}!`).getResponse();
+        return handlerInput.responseBuilder.speak(`Bye ${attributes.foo}!`).withShouldEndSession(true).getResponse();
     }
 }
 

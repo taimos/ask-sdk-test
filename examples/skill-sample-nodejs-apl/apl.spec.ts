@@ -67,7 +67,9 @@ describe('APL Presentation', () => {
                     .build(),
                 says: 'Got launch list item 1',
                 repromptsNothing: true,
-                shouldEndSession: true,
+                // undefined shouldEndSession has a special interpretation by Alexa. For that reason, we are explicitly setting it to undefined here to serve as documentation.
+                // See https://developer.amazon.com/en-US/docs/alexa/custom-skills/manage-skill-session-and-session-attributes.html#screen-session
+                shouldEndSession: undefined,
             },
         ]);
     });
