@@ -67,7 +67,9 @@ describe('APL Presentation', () => {
                     .build(),
                 says: 'Got launch list item 1',
                 repromptsNothing: true,
-                shouldEndSession: true,
+                // undefined has a special meaning and hence writing it explicitly in the test as a form of documentation.
+                // See https://developer.amazon.com/en-US/docs/alexa/custom-skills/manage-skill-session-and-session-attributes.html#screen-session
+                shouldEndSession: undefined,
             },
         ]);
     });

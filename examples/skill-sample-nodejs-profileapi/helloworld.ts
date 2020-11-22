@@ -22,9 +22,9 @@ class LaunchRequestHandler implements RequestHandler {
             const mobile = await upsServiceClient.getProfileMobileNumber();
 
             const speechText = `Hello, ${givenName} ${name}. Your e-mail is ${email} and your phone number is ${mobile}`;
-            return handlerInput.responseBuilder.speak(speechText).getResponse();
+            return handlerInput.responseBuilder.speak(speechText).withShouldEndSession(true).getResponse();
         } catch (e) {
-            return handlerInput.responseBuilder.speak('Hello, world! I am not allowed to view your profile.').getResponse();
+            return handlerInput.responseBuilder.speak('Hello, world! I am not allowed to view your profile.').withShouldEndSession(true).getResponse();
         }
     }
 
