@@ -9,12 +9,21 @@ const types_1 = require("../types");
 class EndSessionValidator extends types_1.ResponseValidator {
     validate(currentItem, response) {
         // check the shouldEndSession flag
-        if (currentItem.shouldEndSession === true && response.response.shouldEndSession === false) {
-            assert_1.fail('the response did not end the session');
+        const expectedShouldEndSession = response.response.shouldEndSession;
+        if (currentItem.shouldEndSession === expectedShouldEndSession) {
+            return;
         }
-        else if (currentItem.shouldEndSession === false && response.response.shouldEndSession !== false) {
-            assert_1.fail('the response ended the session');
+        let failMessage = `shouldEndSession was in an unexpected state. Expected: ${currentItem.shouldEndSession}. Actual: ${expectedShouldEndSession}`;
+        if (currentItem.shouldEndSession === true && expectedShouldEndSession !== true) {
+            failMessage = 'the response did not end the session';
         }
+        else if (currentItem.shouldEndSession === false && expectedShouldEndSession !== false) {
+            failMessage = 'the response ended the session';
+        }
+        else if (currentItem.shouldEndSession === undefined && expectedShouldEndSession !== undefined) {
+            failMessage = 'end of session was not left in an undefined state';
+        }
+        assert_1.fail(failMessage);
     }
 }
 exports.EndSessionValidator = EndSessionValidator;
