@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for ask-sdk-test">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -38,8 +39,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -49,11 +48,6 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
 			<h1>ask-sdk-test</h1>
 		</div>
 	</div>
@@ -70,29 +64,30 @@
 				<a href="https://badge.fury.io/js/ask-sdk-test"><img src="https://badge.fury.io/js/ask-sdk-test.svg" alt="npm version"></a></p>
 				<p>This framework makes it easy to create full-coverage black box tests for an Alexa skill using <a href="https://mochajs.org/">Mocha</a>.</p>
 				<p>Here&#39;s an example of what a test might look like with the test framework.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;ask-sdk-test&#x27;</span>;
-<span class="hljs-keyword">import</span> {handler <span class="hljs-keyword">as</span> skillHandler} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./helloworld&#x27;</span>;
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span><span style="color: #001080">AlexaTest</span><span style="color: #000000">, </span><span style="color: #001080">IntentRequestBuilder</span><span style="color: #000000">, </span><span style="color: #001080">LaunchRequestBuilder</span><span style="color: #000000">, </span><span style="color: #001080">SkillSettings</span><span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;ask-sdk-test&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> {</span><span style="color: #001080">handler</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #001080">skillHandler</span><span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;./helloworld&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-comment">// initialize the testing framework</span>
-<span class="hljs-keyword">const</span> skillSettings : SkillSettings = {
-    <span class="hljs-attr">appId</span>: <span class="hljs-string">&#x27;amzn1.ask.skill.00000000-0000-0000-0000-000000000000&#x27;</span>,
-    <span class="hljs-attr">userId</span>: <span class="hljs-string">&#x27;amzn1.ask.account.VOID&#x27;</span>,
-    <span class="hljs-attr">deviceId</span>: <span class="hljs-string">&#x27;amzn1.ask.device.VOID&#x27;</span>,
-    <span class="hljs-attr">locale</span>: <span class="hljs-string">&#x27;en-US&#x27;</span>,
-};
+<span style="color: #008000">// initialize the testing framework</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">skillSettings</span><span style="color: #000000"> : </span><span style="color: #267F99">SkillSettings</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">    </span><span style="color: #001080">appId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;amzn1.ask.skill.00000000-0000-0000-0000-000000000000&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">userId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;amzn1.ask.account.VOID&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">deviceId:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;amzn1.ask.device.VOID&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">locale:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;en-US&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">};</span>
 
-<span class="hljs-keyword">const</span> alexaTest = <span class="hljs-keyword">new</span> AlexaTest(skillHandler, skillSettings);
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">alexaTest</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">AlexaTest</span><span style="color: #000000">(</span><span style="color: #001080">skillHandler</span><span style="color: #000000">, </span><span style="color: #001080">skillSettings</span><span style="color: #000000">);</span>
 
-describe(<span class="hljs-string">&#x27;LaunchRequest&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
-    alexaTest.test([
-        {
-            <span class="hljs-attr">request</span>: <span class="hljs-keyword">new</span> LaunchRequestBuilder(skillSettings).build(),
-            <span class="hljs-attr">says</span>: <span class="hljs-string">&#x27;Welcome to the Alexa Skills Kit, you can say hello!&#x27;</span>,
-            <span class="hljs-attr">repromptsNothing</span>: <span class="hljs-literal">true</span>,
-            <span class="hljs-attr">shouldEndSession</span>: <span class="hljs-literal">true</span>,
-        },
-    ]);
-});</code></pre>
+<span style="color: #795E26">describe</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;LaunchRequest&#039;</span><span style="color: #000000">, () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">alexaTest</span><span style="color: #000000">.</span><span style="color: #795E26">test</span><span style="color: #000000">([</span>
+<span style="color: #000000">        {</span>
+<span style="color: #000000">            </span><span style="color: #001080">request:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">LaunchRequestBuilder</span><span style="color: #000000">(</span><span style="color: #001080">skillSettings</span><span style="color: #000000">).</span><span style="color: #795E26">build</span><span style="color: #000000">(),</span>
+<span style="color: #000000">            </span><span style="color: #001080">says:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Welcome to the Alexa Skills Kit, you can say hello!&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">            </span><span style="color: #001080">repromptsNothing:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">            </span><span style="color: #001080">shouldEndSession:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">        },</span>
+<span style="color: #000000">    ]);</span>
+<span style="color: #000000">});</span>
+</code></pre>
 				<p>If you are writing your Alexa Skills in Python, check out <a href="https://github.com/BananaNosh/py_ask_sdk_test">https://github.com/BananaNosh/py_ask_sdk_test</a></p>
 				<a href="#how-to" id="how-to" style="color: inherit; text-decoration: none;">
 					<h2>How To</h2>
@@ -109,109 +104,67 @@ describe(<span class="hljs-string">&#x27;LaunchRequest&#x27;</span>, <span class
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/factory_aplusereventrequestbuilder.html">factory/<wbr>Apl<wbr>User<wbr>Event<wbr>Request<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/factory_audiointentrequestbuilder.html">factory/<wbr>Audio<wbr>Intent<wbr>Request<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/factory_intentrequestbuilder.html">factory/<wbr>Intent<wbr>Request<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/factory_launchrequestbuilder.html">factory/<wbr>Launch<wbr>Request<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/factory_requestbuilder.html">factory/<wbr>Request<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/factory_sessionendedrequestbuilder.html">factory/<wbr>Session<wbr>Ended<wbr>Request<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tester_alexatest.html">tester/<wbr>Alexa<wbr>Test</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tester_aplvalidator.html">tester/<wbr>Apl<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tester_audioplayervalidator.html">tester/<wbr>Audio<wbr>Player<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tester_cardvalidator.html">tester/<wbr>Card<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tester_dialogvalidator.html">tester/<wbr>Dialog<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tester_endsessionvalidator.html">tester/<wbr>End<wbr>Session<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tester_questionmarkvalidator.html">tester/<wbr>Question<wbr>Mark<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tester_sessionattributevalidator.html">tester/<wbr>Session<wbr>Attribute<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tester_speechvalidator.html">tester/<wbr>Speech<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tester_videoappvalidator.html">tester/<wbr>Video<wbr>App<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types.html">types</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="classes/alexatest.html" class="tsd-kind-icon">Alexa<wbr>Test</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/aplusereventrequestbuilder.html" class="tsd-kind-icon">Apl<wbr>User<wbr>Event<wbr>Request<wbr>Builder</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/aplvalidator.html" class="tsd-kind-icon">Apl<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/audioplayerpauseintentrequestbuilder.html" class="tsd-kind-icon">Audio<wbr>Player<wbr>Pause<wbr>Intent<wbr>Request<wbr>Builder</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/audioplayerresumeintentrequestbuilder.html" class="tsd-kind-icon">Audio<wbr>Player<wbr>Resume<wbr>Intent<wbr>Request<wbr>Builder</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/audioplayervalidator.html" class="tsd-kind-icon">Audio<wbr>Player<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/cardvalidator.html" class="tsd-kind-icon">Card<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/dialogvalidator.html" class="tsd-kind-icon">Dialog<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/endsessionvalidator.html" class="tsd-kind-icon">End<wbr>Session<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/intentrequestbuilder.html" class="tsd-kind-icon">Intent<wbr>Request<wbr>Builder</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/launchrequestbuilder.html" class="tsd-kind-icon">Launch<wbr>Request<wbr>Builder</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/questionmarkvalidator.html" class="tsd-kind-icon">Question<wbr>Mark<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/requestbuilder.html" class="tsd-kind-icon">Request<wbr>Builder</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/responsevalidator.html" class="tsd-kind-icon">Response<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/sessionattributevalidator.html" class="tsd-kind-icon">Session<wbr>Attribute<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/sessionendedrequestbuilder.html" class="tsd-kind-icon">Session<wbr>Ended<wbr>Request<wbr>Builder</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/speechvalidator.html" class="tsd-kind-icon">Speech<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/videoappvalidator.html" class="tsd-kind-icon">Video<wbr>App<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/interfacesettings.html" class="tsd-kind-icon">Interface<wbr>Settings</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/playstreamconfig.html" class="tsd-kind-icon">Play<wbr>Stream<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/playvideoconfig.html" class="tsd-kind-icon">Play<wbr>Video<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/profileinfo.html" class="tsd-kind-icon">Profile<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/renderdocumentconfig.html" class="tsd-kind-icon">Render<wbr>Document<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/sequenceitem.html" class="tsd-kind-icon">Sequence<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/skillsettings.html" class="tsd-kind-icon">Skill<wbr>Settings</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/testsettings.html" class="tsd-kind-icon">Test<wbr>Settings</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#getiteminput" class="tsd-kind-icon">Get<wbr>Item<wbr>Input</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#playeractivity" class="tsd-kind-icon">Player<wbr>Activity</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#putiteminput" class="tsd-kind-icon">Put<wbr>Item<wbr>Input</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#userevent" class="tsd-kind-icon">User<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="globals.html#dynamodbmock" class="tsd-kind-icon">dynamoDBMock</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="globals.html#upsservicemock" class="tsd-kind-icon">ups<wbr>Service<wbr>Mock</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -222,22 +175,10 @@ describe(<span class="hljs-string">&#x27;LaunchRequest&#x27;</span>, <span class
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 			</ul>
 		</div>
 	</div>

@@ -1,5 +1,8 @@
 
 ## current master
+* Improve saysLike and repromptsLike error messages.
+* Introduce support for APL-A
+* Support withShouldEndSession having an undefined value
 
 ## 2.5.0
 * feat: add `renderDocument` parameter used to assert templates in `AplValidator` class.
