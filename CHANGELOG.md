@@ -1,5 +1,7 @@
 
 ## current master
+
+## 2.6.0
 * Improve saysLike and repromptsLike error messages.
 * Introduce support for APL-A
 * Support withShouldEndSession having an undefined value
