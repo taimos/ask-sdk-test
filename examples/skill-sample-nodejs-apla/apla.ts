@@ -17,6 +17,7 @@ class LaunchRequestHandler implements RequestHandler {
         return handlerInput.responseBuilder
             .speak('Check out my APL for Audio!')
             .addDirective(directive)
+            .withShouldEndSession(true)
             .getResponse();
     }
 

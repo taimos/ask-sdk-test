@@ -31,7 +31,7 @@ class SpeechValidator extends types_1.ResponseValidator {
             }
         }
         if (currentItem.saysLike !== undefined) {
-            chai_1.expect(actualSay.indexOf(currentItem.saysLike) >= 0, 'Speech did not contain specified text').to.be.true;
+            chai_1.expect(actualSay.indexOf(currentItem.saysLike) >= 0, `Speech did not contain specified text. Expected ${actualSay} to be like ${currentItem.saysLike}`).to.be.true;
         }
         if (currentItem.saysNothing) {
             chai_1.expect(actualSay, 'Should have said nothing').to.be.undefined;
@@ -58,7 +58,7 @@ class SpeechValidator extends types_1.ResponseValidator {
             }
         }
         if (currentItem.repromptsLike !== undefined) {
-            chai_1.expect(actualReprompt.indexOf(currentItem.repromptsLike) >= 0, 'Reprompt did not contain specified text').to.be.true;
+            chai_1.expect(actualReprompt.indexOf(currentItem.repromptsLike) >= 0, `Reprompt did not contain specified text. Expected ${actualReprompt} to be like ${currentItem.repromptsLike}`).to.be.true;
         }
         if (currentItem.repromptsNothing) {
             chai_1.expect(actualReprompt, 'Should have reprompted nothing').to.be.undefined;

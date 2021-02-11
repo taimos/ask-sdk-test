@@ -19,10 +19,12 @@ class LaunchRequestHandler implements RequestHandler {
             return handlerInput.responseBuilder
                 .speak('Check out my APL!')
                 .addDirective(directive)
+                .withShouldEndSession(true)
                 .getResponse();
-        } else {
-            return handlerInput.responseBuilder
+            } else {
+                return handlerInput.responseBuilder
                 .speak('I do not support APL')
+                .withShouldEndSession(true)
                 .getResponse();
         }
     }
@@ -128,11 +130,12 @@ class TouchHandler implements RequestHandler {
             handlerInput.requestEnvelope.request.arguments !== undefined) {
             if (handlerInput.requestEnvelope.request.arguments[0] === 'ListItemSelected') {
                 const arg = handlerInput.requestEnvelope.request.arguments[1];
-                return handlerInput.responseBuilder.speak(`Got launch list item ${arg}`).getResponse();
+                return handlerInput.responseBuilder.speak(`Got launch list item ${arg}`)
+                    .getResponse();
             }
         }
 
-        return handlerInput.responseBuilder.speak('Touch arg not handled').getResponse();
+        return handlerInput.responseBuilder.speak('Touch arg not handled').withShouldEndSession(true).getResponse();
     }
 }
 

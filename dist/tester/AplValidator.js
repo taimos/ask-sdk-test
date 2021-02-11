@@ -15,7 +15,7 @@ class AplValidator extends types_1.ResponseValidator {
             }
             const renderedDocument = response.response.directives.find((value) => value.type === 'Alexa.Presentation.APL.RenderDocument' || value.type === 'Alexa.Presentation.APLA.RenderDocument');
             if (!renderedDocument) {
-                assert_1.fail('the response dit not contain a render directive');
+                assert_1.fail('the response did not contain a render directive');
             }
             const renderConfig = currentItem.renderDocument;
             if (renderConfig.token) {

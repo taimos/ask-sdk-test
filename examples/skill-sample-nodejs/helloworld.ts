@@ -17,6 +17,7 @@ class LaunchRequestHandler implements RequestHandler {
         return handlerInput.responseBuilder
             .speak(speechText)
             .withSimpleCard('Hello World', speechText)
+            .withShouldEndSession(true)
             .getResponse();
     }
 
@@ -40,6 +41,7 @@ class HelloWorldIntentHandler implements RequestHandler {
         return handlerInput.responseBuilder
             .speak(speechText)
             .withSimpleCard('Hello World', speechText)
+            .withShouldEndSession(true)
             .getResponse();
     }
 }
