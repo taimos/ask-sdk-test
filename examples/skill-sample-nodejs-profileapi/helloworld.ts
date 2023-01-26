@@ -8,12 +8,12 @@ import { Response } from 'ask-sdk-model';
 
 class LaunchRequestHandler implements RequestHandler {
 
-    public canHandle(handlerInput : HandlerInput) : boolean {
+    public canHandle(handlerInput: HandlerInput): boolean {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     }
 
-    public async handle(handlerInput : HandlerInput) : Promise<Response> {
-        const upsServiceClient = handlerInput.serviceClientFactory.getUpsServiceClient();
+    public async handle(handlerInput: HandlerInput): Promise<Response> {
+        const upsServiceClient = handlerInput.serviceClientFactory!.getUpsServiceClient();
 
         try {
             const name = await upsServiceClient.getProfileName();
@@ -30,7 +30,7 @@ class LaunchRequestHandler implements RequestHandler {
 
 }
 
-export const handler : LambdaHandler = SkillBuilders.custom()
+export const handler: LambdaHandler = SkillBuilders.custom()
     .addRequestHandlers(
         new LaunchRequestHandler(),
     )

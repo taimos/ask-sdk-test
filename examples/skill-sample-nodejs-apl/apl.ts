@@ -7,12 +7,12 @@ import RenderDocumentDirective = interfaces.alexa.presentation.apl.RenderDocumen
 
 class LaunchRequestHandler implements RequestHandler {
 
-    public canHandle(handlerInput : HandlerInput) : boolean {
+    public canHandle(handlerInput: HandlerInput): boolean {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     }
 
-    public async handle(handlerInput : HandlerInput) : Promise<Response> {
-        const device = handlerInput.requestEnvelope.context.System.device;
+    public async handle(handlerInput: HandlerInput): Promise<Response> {
+        const device = handlerInput.requestEnvelope.context.System.device!;
         if (device.supportedInterfaces['Alexa.Presentation.APL'] !== undefined) {
             const token = 'LAUNCH_TOKEN';
             const directive = this.getRenderDirective(token);
@@ -21,15 +21,15 @@ class LaunchRequestHandler implements RequestHandler {
                 .addDirective(directive)
                 .withShouldEndSession(true)
                 .getResponse();
-            } else {
-                return handlerInput.responseBuilder
+        } else {
+            return handlerInput.responseBuilder
                 .speak('I do not support APL')
                 .withShouldEndSession(true)
                 .getResponse();
         }
     }
 
-    private getRenderDirective(token : string) : RenderDocumentDirective {
+    private getRenderDirective(token: string): RenderDocumentDirective {
         // Return an Alexa Test List Layout
         // See: https://developer.amazon.com/en-US/docs/alexa/alexa-presentation-language/apl-alexa-text-list-layout.html
         return {
@@ -42,7 +42,7 @@ class LaunchRequestHandler implements RequestHandler {
         };
     }
 
-    private getTemplate() : any {
+    private getTemplate(): any {
         return {
             type: 'APL',
             version: '1.3',
@@ -88,7 +88,7 @@ class LaunchRequestHandler implements RequestHandler {
         };
     }
 
-    private getListData() : any {
+    private getListData(): any {
         return {
             headerTitle: 'Alexa text list header title',
             headerSubtitle: 'Header subtitle',
@@ -121,11 +121,11 @@ class LaunchRequestHandler implements RequestHandler {
 
 class TouchHandler implements RequestHandler {
 
-    public canHandle(handlerInput : HandlerInput) : boolean {
+    public canHandle(handlerInput: HandlerInput): boolean {
         return handlerInput.requestEnvelope.request.type === 'Alexa.Presentation.APL.UserEvent';
     }
 
-    public async handle(handlerInput : HandlerInput) : Promise<Response> {
+    public async handle(handlerInput: HandlerInput): Promise<Response> {
         if (handlerInput.requestEnvelope.request.type === 'Alexa.Presentation.APL.UserEvent' &&
             handlerInput.requestEnvelope.request.arguments !== undefined) {
             if (handlerInput.requestEnvelope.request.arguments[0] === 'ListItemSelected') {
@@ -139,7 +139,7 @@ class TouchHandler implements RequestHandler {
     }
 }
 
-export const handler : LambdaHandler = SkillBuilders.custom()
+export const handler: LambdaHandler = SkillBuilders.custom()
     .addRequestHandlers(
         new LaunchRequestHandler(),
         new TouchHandler(),

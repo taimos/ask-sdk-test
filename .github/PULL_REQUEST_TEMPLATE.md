@@ -1,5 +1,4 @@
 * **Please check if the PR fulfills these requirements**
-
 - [ ] The commit message describes your change
 - [ ] Tests for the changes have been added if possible (for bug fixes / features)
 - [ ] Docs have been added / updated (for bug fixes / features)

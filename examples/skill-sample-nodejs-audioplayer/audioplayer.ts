@@ -8,11 +8,11 @@ import { Response } from 'ask-sdk-model';
 
 class LaunchRequestHandler implements RequestHandler {
 
-    public canHandle(handlerInput : HandlerInput) : boolean {
+    public canHandle(handlerInput: HandlerInput): boolean {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     }
 
-    public handle(handlerInput : HandlerInput) : Response {
+    public handle(handlerInput: HandlerInput): Response {
         return handlerInput.responseBuilder.speak('Hello World!').withShouldEndSession(true).getResponse();
     }
 
@@ -20,26 +20,26 @@ class LaunchRequestHandler implements RequestHandler {
 
 class PlayStreamIntentHandler implements RequestHandler {
 
-    public canHandle(handlerInput : HandlerInput) : boolean {
+    public canHandle(handlerInput: HandlerInput): boolean {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'PlayStreamIntent';
     }
 
-    public handle(handlerInput : HandlerInput) : Response {
+    public handle(handlerInput: HandlerInput): Response {
         return handlerInput.responseBuilder
-            .addAudioPlayerPlayDirective('REPLACE_ALL', 'https://superAudio.stream', 'superToken', 0, null)
+            .addAudioPlayerPlayDirective('REPLACE_ALL', 'https://superAudio.stream', 'superToken', 0, undefined)
             .getResponse();
     }
 }
 
 class ClearQueueIntentHandler implements RequestHandler {
 
-    public canHandle(handlerInput : HandlerInput) : boolean {
+    public canHandle(handlerInput: HandlerInput): boolean {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'ClearQueueIntent';
     }
 
-    public handle(handlerInput : HandlerInput) : Response {
+    public handle(handlerInput: HandlerInput): Response {
         return handlerInput.responseBuilder
             .addAudioPlayerClearQueueDirective('CLEAR_ALL')
             .getResponse();
@@ -48,14 +48,14 @@ class ClearQueueIntentHandler implements RequestHandler {
 
 class StopAudioHandler implements RequestHandler {
 
-    public canHandle(handlerInput : HandlerInput) : boolean {
+    public canHandle(handlerInput: HandlerInput): boolean {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.PauseIntent' ||
                 handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent' ||
                 handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent');
     }
 
-    public handle(handlerInput : HandlerInput) : Response {
+    public handle(handlerInput: HandlerInput): Response {
         return handlerInput.responseBuilder
             .addAudioPlayerStopDirective()
             .getResponse();
@@ -64,12 +64,12 @@ class StopAudioHandler implements RequestHandler {
 
 class ResumeIntentHandler implements RequestHandler {
 
-    public canHandle(handlerInput : HandlerInput) : boolean {
+    public canHandle(handlerInput: HandlerInput): boolean {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.ResumeIntent';
     }
 
-    public handle(handlerInput : HandlerInput) : Response {
+    public handle(handlerInput: HandlerInput): Response {
         const offset = handlerInput.requestEnvelope.context.AudioPlayer ? handlerInput.requestEnvelope.context.AudioPlayer.offsetInMilliseconds || 0 : 0;
         return handlerInput.responseBuilder
             .addAudioPlayerPlayDirective('REPLACE_ALL', 'https://superAudio.stream', 'superToken', offset, 'superToken')
@@ -77,7 +77,7 @@ class ResumeIntentHandler implements RequestHandler {
     }
 }
 
-export const handler : LambdaHandler = SkillBuilders.custom()
+export const handler: LambdaHandler = SkillBuilders.custom()
     .addRequestHandlers(
         new LaunchRequestHandler(),
         new PlayStreamIntentHandler(),
