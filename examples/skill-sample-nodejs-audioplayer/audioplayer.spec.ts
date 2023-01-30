@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../lib';
+import { AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../src';
 import { AudioPlayerPauseIntentRequestBuilder, AudioPlayerResumeIntentRequestBuilder } from '../../lib/factory/AudioIntentRequestBuilder';
 import { handler as skillHandler } from './audioplayer';
 
@@ -19,7 +19,7 @@ const alexaTest = new AlexaTest(skillHandler, skillSettings);
 describe('Audio Player Skill', () => {
     'use strict';
 
-    describe('LaunchRequest', () => {
+    it('LaunchRequest', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),
@@ -28,7 +28,7 @@ describe('Audio Player Skill', () => {
         ]);
     });
 
-    describe('PlayStreamIntent', () => {
+    it('PlayStreamIntent', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'PlayStreamIntent').build(),
@@ -41,7 +41,7 @@ describe('Audio Player Skill', () => {
         ]);
     });
 
-    describe('ClearQueueIntent', () => {
+    it('ClearQueueIntent', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'ClearQueueIntent').build(),
@@ -50,7 +50,7 @@ describe('Audio Player Skill', () => {
         ]);
     });
 
-    describe('AMAZON.ResumeIntent', () => {
+    it('AMAZON.ResumeIntent', () => {
         alexaTest.test([
             {
                 request: new AudioPlayerResumeIntentRequestBuilder(skillSettings).build(),
@@ -64,7 +64,7 @@ describe('Audio Player Skill', () => {
         ]);
     });
 
-    describe('AMAZON.ResumeIntent at position', () => {
+    it('AMAZON.ResumeIntent at position', () => {
         alexaTest.test([
             {
                 request: new AudioPlayerResumeIntentRequestBuilder(skillSettings).withToken('superToken').withOffset(123).build(),
@@ -78,7 +78,7 @@ describe('Audio Player Skill', () => {
         ]);
     });
 
-    describe('AMAZON.PauseIntent', () => {
+    it('AMAZON.PauseIntent', () => {
         alexaTest.test([
             {
                 request: new AudioPlayerPauseIntentRequestBuilder(skillSettings).build(),

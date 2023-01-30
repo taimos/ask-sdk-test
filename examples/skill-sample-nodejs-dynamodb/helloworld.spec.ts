@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../lib';
+import { AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../it';
 import { handler as skillHandler } from './helloworld';
 
 // initialize the testing framework
@@ -16,7 +16,7 @@ const alexaTest = new AlexaTest(skillHandler, skillSettings).withDynamoDBPersist
 
 describe('Hello World Skill DynamoDB', () => {
     // tests the behavior of the skill's LaunchRequest
-    describe('LaunchRequest', () => {
+    it('LaunchRequest', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),
@@ -28,7 +28,7 @@ describe('Hello World Skill DynamoDB', () => {
     });
 
     // tests the behavior of the skill's HelloWorldIntent
-    describe('HelloWorldIntent', () => {
+    it('HelloWorldIntent', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'HelloWorldIntent').build(),
@@ -42,7 +42,7 @@ describe('Hello World Skill DynamoDB', () => {
     });
 
     // tests the behavior of the skill's HelloWorldIntent using validation function
-    describe('HelloWorldIntent', () => {
+    it('HelloWorldIntent', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'HelloWorldIntent').build(),
@@ -57,7 +57,7 @@ describe('Hello World Skill DynamoDB', () => {
     });
 
     // tests the behavior of the skill's HelloWorldIntent using validation function
-    describe('SayGoodbye', () => {
+    it('SayGoodbye', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'SayGoodbye').build(),

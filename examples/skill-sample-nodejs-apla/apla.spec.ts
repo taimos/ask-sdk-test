@@ -1,4 +1,4 @@
-import { AlexaTest, LaunchRequestBuilder, SkillSettings } from '../../lib';
+import { AlexaTest, LaunchRequestBuilder, SkillSettings } from '../../src';
 import { handler as skillHandler } from './apla';
 
 // initialize the testing framework
@@ -13,7 +13,7 @@ const alexaTest = new AlexaTest(skillHandler, skillSettings);
 
 describe('APLA', () => {
 
-    describe('APLA directives', () => {
+    it('APLA directives', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings)
