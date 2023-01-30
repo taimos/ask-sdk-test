@@ -3,7 +3,7 @@
  */
 
 import { AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../src';
-import { AudioPlayerPauseIntentRequestBuilder, AudioPlayerResumeIntentRequestBuilder } from '../../lib/factory/AudioIntentRequestBuilder';
+import { AudioPlayerPauseIntentRequestBuilder, AudioPlayerResumeIntentRequestBuilder } from '../../src/factory/AudioIntentRequestBuilder';
 import { handler as skillHandler } from './audioplayer';
 
 // initialize the testing framework
