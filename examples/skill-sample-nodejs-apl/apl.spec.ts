@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { AlexaTest, AplUserEventRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../lib';
+import { AlexaTest, AplUserEventRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../src';
 import { handler as skillHandler } from './apl';
 
 // initialize the testing framework
@@ -21,7 +21,7 @@ describe('APL Presentation', () => {
     // TODO: Pass touch event
     // TODO: Check user event
 
-    describe('APL disabled', () => {
+    it('APL disabled', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings)
@@ -34,7 +34,7 @@ describe('APL Presentation', () => {
         ]);
     });
 
-    describe('APL with touch', () => {
+    it('APL with touch', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings)
@@ -74,7 +74,7 @@ describe('APL Presentation', () => {
         ]);
     });
 
-    describe('APL touch not handled', () => {
+    it('APL touch not handled', () => {
         alexaTest.test([
             {
                 request: new AplUserEventRequestBuilder(skillSettings)

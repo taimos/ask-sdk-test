@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { AlexaTest, LaunchRequestBuilder, SkillSettings } from '../../lib';
+import { AlexaTest, LaunchRequestBuilder, SkillSettings } from '../../src';
 import { handler as skillHandler } from './helloworld';
 
 // initialize the testing framework
@@ -17,7 +17,7 @@ const alexaTest = new AlexaTest(skillHandler, skillSettings);
 
 describe('Hello World Skill Profile API', () => {
 
-    describe('LaunchRequest', () => {
+    it('LaunchRequest', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),
@@ -34,7 +34,7 @@ describe('Hello World Skill Profile API', () => {
         ]);
     });
 
-    describe('LaunchRequest without profile info', () => {
+    it('LaunchRequest without profile info', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),

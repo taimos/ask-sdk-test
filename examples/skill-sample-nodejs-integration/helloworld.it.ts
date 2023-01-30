@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { AlexaTest, LaunchRequestBuilder, SkillSettings } from '../../lib';
+import { AlexaTest, LaunchRequestBuilder, SkillSettings } from '../../src';
 
 // initialize the testing framework
 const skillSettings : SkillSettings = {
@@ -21,7 +21,7 @@ const alexaTest = new AlexaTest('cfn:pse-skill:SkillFunction', skillSettings);
 
 describe('Hello World Skill', () => {
     // tests the behavior of the skill's LaunchRequest
-    describe('LaunchRequest', () => {
+    it('LaunchRequest', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),

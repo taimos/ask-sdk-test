@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../lib';
+import { AlexaTest, IntentRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../src';
 import { handler as skillHandler } from './helloworld';
 
 // initialize the testing framework
@@ -17,7 +17,7 @@ const alexaTest = new AlexaTest(skillHandler, skillSettings);
 
 describe('Hello World Skill with MultiStrings', () => {
     // tests the behavior of the skill's LaunchRequest
-    describe('LaunchRequest', () => {
+    it('LaunchRequest', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),
@@ -29,7 +29,7 @@ describe('Hello World Skill with MultiStrings', () => {
     });
 
     // tests the behavior of the skill's HelloWorldIntent
-    describe('HelloWorldIntent', () => {
+    it('HelloWorldIntent', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'HelloWorldIntent').build(),
