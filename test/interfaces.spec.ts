@@ -3,7 +3,7 @@
  */
 
 import { expect } from 'chai';
-import { LaunchRequestBuilder, SkillSettings } from '../lib';
+import { LaunchRequestBuilder, SkillSettings } from '../src';
 
 // initialize the testing framework
 const skillSettings: SkillSettings = {

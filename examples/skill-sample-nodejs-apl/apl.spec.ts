@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { AlexaTest, AplUserEventRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../lib';
+import { AlexaTest, AplUserEventRequestBuilder, LaunchRequestBuilder, SkillSettings } from '../../src';
 import { handler as skillHandler } from './apl';
 
 // initialize the testing framework

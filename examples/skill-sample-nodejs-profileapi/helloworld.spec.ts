@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Taimos GmbH http://www.taimos.de
  */
 
-import { AlexaTest, LaunchRequestBuilder, SkillSettings } from '../../lib';
+import { AlexaTest, LaunchRequestBuilder, SkillSettings } from '../../src';
 import { handler as skillHandler } from './helloworld';
 
 // initialize the testing framework
