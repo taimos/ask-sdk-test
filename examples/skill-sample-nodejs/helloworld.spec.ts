@@ -17,7 +17,7 @@ const alexaTest = new AlexaTest(skillHandler, skillSettings);
 
 describe('Hello World Skill', () => {
     // tests the behavior of the skill's LaunchRequest
-    it('LaunchRequest', () => {
+    describe('LaunchRequest', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),
@@ -29,7 +29,7 @@ describe('Hello World Skill', () => {
     });
 
     // tests the behavior of the skill's HelloWorldIntent
-    it('HelloWorldIntent', () => {
+    describe('HelloWorldIntent', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'HelloWorldIntent').build(),
@@ -47,7 +47,7 @@ describe('Hello World Skill', () => {
     });
 
     // tests the behavior of the skill's HelloWorldIntent with like operator
-    it('HelloWorldIntent like', () => {
+    describe('HelloWorldIntent like', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'HelloWorldIntent').build(),

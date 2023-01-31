@@ -21,7 +21,7 @@ describe('APL Presentation', () => {
     // TODO: Pass touch event
     // TODO: Check user event
 
-    it('APL disabled', () => {
+    describe('APL disabled', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings)
@@ -34,7 +34,7 @@ describe('APL Presentation', () => {
         ]);
     });
 
-    it('APL with touch', () => {
+    describe('APL with touch', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings)
@@ -74,7 +74,7 @@ describe('APL Presentation', () => {
         ]);
     });
 
-    it('APL touch not handled', () => {
+    describe('APL touch not handled', () => {
         alexaTest.test([
             {
                 request: new AplUserEventRequestBuilder(skillSettings)

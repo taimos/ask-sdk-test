@@ -19,7 +19,7 @@ const alexaTest = new AlexaTest(skillHandler, skillSettings);
 describe('Audio Player Skill', () => {
     'use strict';
 
-    it('LaunchRequest', () => {
+    describe('LaunchRequest', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),
@@ -28,7 +28,7 @@ describe('Audio Player Skill', () => {
         ]);
     });
 
-    it('PlayStreamIntent', () => {
+    describe('PlayStreamIntent', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'PlayStreamIntent').build(),
@@ -41,7 +41,7 @@ describe('Audio Player Skill', () => {
         ]);
     });
 
-    it('ClearQueueIntent', () => {
+    describe('ClearQueueIntent', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'ClearQueueIntent').build(),
@@ -50,7 +50,7 @@ describe('Audio Player Skill', () => {
         ]);
     });
 
-    it('AMAZON.ResumeIntent', () => {
+    describe('AMAZON.ResumeIntent', () => {
         alexaTest.test([
             {
                 request: new AudioPlayerResumeIntentRequestBuilder(skillSettings).build(),
@@ -64,7 +64,7 @@ describe('Audio Player Skill', () => {
         ]);
     });
 
-    it('AMAZON.ResumeIntent at position', () => {
+    describe('AMAZON.ResumeIntent at position', () => {
         alexaTest.test([
             {
                 request: new AudioPlayerResumeIntentRequestBuilder(skillSettings).withToken('superToken').withOffset(123).build(),
@@ -78,7 +78,7 @@ describe('Audio Player Skill', () => {
         ]);
     });
 
-    it('AMAZON.PauseIntent', () => {
+    describe('AMAZON.PauseIntent', () => {
         alexaTest.test([
             {
                 request: new AudioPlayerPauseIntentRequestBuilder(skillSettings).build(),

@@ -17,7 +17,7 @@ const alexaTest = new AlexaTest(skillHandler, skillSettings);
 
 describe('Hello World Skill Profile API', () => {
 
-    it('LaunchRequest', () => {
+    describe('LaunchRequest', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),
@@ -34,7 +34,7 @@ describe('Hello World Skill Profile API', () => {
         ]);
     });
 
-    it('LaunchRequest without profile info', () => {
+    describe('LaunchRequest without profile info', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),

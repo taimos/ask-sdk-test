@@ -21,7 +21,7 @@ const alexaTest = new AlexaTest('cfn:pse-skill:SkillFunction', skillSettings);
 
 describe('Hello World Skill', () => {
     // tests the behavior of the skill's LaunchRequest
-    it('LaunchRequest', () => {
+    describe('LaunchRequest', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),

@@ -13,7 +13,7 @@ const alexaTest = new AlexaTest(skillHandler, skillSettings);
 
 describe('APLA', () => {
 
-    it('APLA directives', () => {
+    describe('APLA directives', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings)

@@ -16,7 +16,7 @@ const alexaTest = new AlexaTest(skillHandler, skillSettings).withDynamoDBPersist
 
 describe('Hello World Skill DynamoDB', () => {
     // tests the behavior of the skill's LaunchRequest
-    it('LaunchRequest', () => {
+    describe('LaunchRequest', () => {
         alexaTest.test([
             {
                 request: new LaunchRequestBuilder(skillSettings).build(),
@@ -28,7 +28,7 @@ describe('Hello World Skill DynamoDB', () => {
     });
 
     // tests the behavior of the skill's HelloWorldIntent
-    it('HelloWorldIntent', () => {
+    describe('HelloWorldIntent', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'HelloWorldIntent').build(),
@@ -42,7 +42,7 @@ describe('Hello World Skill DynamoDB', () => {
     });
 
     // tests the behavior of the skill's HelloWorldIntent using validation function
-    it('HelloWorldIntent', () => {
+    describe('HelloWorldIntent', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'HelloWorldIntent').build(),
@@ -57,7 +57,7 @@ describe('Hello World Skill DynamoDB', () => {
     });
 
     // tests the behavior of the skill's HelloWorldIntent using validation function
-    it('SayGoodbye', () => {
+    describe('SayGoodbye', () => {
         alexaTest.test([
             {
                 request: new IntentRequestBuilder(skillSettings, 'SayGoodbye').build(),
