@@ -47,11 +47,10 @@
     "eslint-import-resolver-node": "^0.3.7",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.5",
-    "json-schema": "^0.4.0",
     "mocha": "10.2.0",
     "npm-check-updates": "^16",
     "nyc": "^15.1.0",
-    "projen": "^0.67.21",
+    "projen": "^0.67.34",
     "rimraf": "*",
     "sinon": "^15.0.1",
     "standard-version": "^9",
@@ -67,7 +66,7 @@
     "mocha": "^10.2.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.1304.0",
+    "aws-sdk": "^2.1309.0",
     "aws-sdk-mock": "^5.8.0",
     "lambda-local": "^2.0.3",
     "nock": "^13.3.0",
