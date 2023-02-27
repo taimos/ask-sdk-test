@@ -88,6 +88,7 @@ export abstract class RequestBuilder {
     }
     if (this.settings.interfaces!.video) {
       ctx.System.device!.supportedInterfaces.VideoApp = {};
+      ctx.Viewport = { video: { codecs: [ 'H_264_41', 'H_264_42' ] } }
     }
     if (this.settings.interfaces!.apl) {
       ctx.System.device!.supportedInterfaces['Alexa.Presentation.APL'] = { runtime: { maxVersion: '1.3' } };
