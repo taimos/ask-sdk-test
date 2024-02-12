@@ -229,7 +229,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@taimos/projen,@types/chai,@types/mocha,@types/node,@types/sinon,@types/uuid,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,chai,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,mocha,nyc,projen,rimraf,sinon,standard-version,ts-node,typedoc,typescript,ask-sdk-core,ask-sdk-model,ask-sdk,aws-sdk,aws-sdk-mock,lambda-local,nock,uuid"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@taimos/projen,@types/chai,@types/mocha,@types/sinon,@types/uuid,chai,eslint-import-resolver-typescript,eslint-plugin-import,mocha,nyc,projen,rimraf,sinon,ts-node,typedoc,typescript,aws-sdk,aws-sdk-mock,lambda-local,nock,uuid"
         },
         {
           "exec": "yarn install --check-files"
