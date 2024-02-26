@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@taimos/projen": "^0.0.188",
-    "@types/chai": "^4.3.11",
+    "@types/chai": "^4.3.12",
     "@types/mocha": "^10.0.6",
     "@types/node": "^18",
     "@types/sinon": "^10.0.20",
@@ -65,7 +65,7 @@
     "mocha": "^10.3.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.1560.0",
+    "aws-sdk": "^2.1565.0",
     "aws-sdk-mock": "^5.9.0",
     "lambda-local": "^2.1.2",
     "nock": "^13.5.3",
