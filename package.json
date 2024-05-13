@@ -31,7 +31,7 @@
     "organization": true
   },
   "devDependencies": {
-    "@taimos/projen": "^0.0.198",
+    "@taimos/projen": "^0.0.199",
     "@types/chai": "^4.3.16",
     "@types/mocha": "^10.0.6",
     "@types/node": "^18",
@@ -49,8 +49,8 @@
     "eslint-plugin-import": "^2.29.1",
     "mocha": "10.4.0",
     "nyc": "^15.1.0",
-    "projen": "^0.81.5",
-    "rimraf": "^5.0.5",
+    "projen": "^0.81.10",
+    "rimraf": "^5.0.7",
     "sinon": "^15.0.2",
     "standard-version": "^9",
     "ts-node": "^10.9.2",
@@ -65,7 +65,7 @@
     "mocha": "^10.4.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.1613.0",
+    "aws-sdk": "^2.1618.0",
     "aws-sdk-mock": "^5.9.0",
     "lambda-local": "^2.2.0",
     "nock": "^13.5.4",
