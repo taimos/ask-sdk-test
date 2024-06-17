@@ -31,14 +31,14 @@
     "organization": true
   },
   "devDependencies": {
-    "@taimos/projen": "^0.0.203",
+    "@taimos/projen": "^0.0.204",
     "@types/chai": "^4.3.16",
     "@types/mocha": "^10.0.6",
     "@types/node": "^18",
     "@types/sinon": "^10.0.20",
     "@types/uuid": "^9.0.8",
-    "@typescript-eslint/eslint-plugin": "^6",
-    "@typescript-eslint/parser": "^6",
+    "@typescript-eslint/eslint-plugin": "^7",
+    "@typescript-eslint/parser": "^7",
     "ask-sdk": "2.10.0",
     "ask-sdk-core": "2.10.1",
     "ask-sdk-model": "1.34.1",
@@ -49,7 +49,7 @@
     "eslint-plugin-import": "^2.29.1",
     "mocha": "10.4.0",
     "nyc": "^15.1.0",
-    "projen": "^0.81.17",
+    "projen": "^0.82.6",
     "rimraf": "^5.0.7",
     "sinon": "^15.0.2",
     "standard-version": "^9",
@@ -65,7 +65,7 @@
     "mocha": "^10.4.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.1637.0",
+    "aws-sdk": "^2.1642.0",
     "aws-sdk-mock": "^5.9.0",
     "lambda-local": "^2.2.0",
     "nock": "^13.5.4",
