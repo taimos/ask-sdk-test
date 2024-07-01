@@ -31,7 +31,7 @@
     "organization": true
   },
   "devDependencies": {
-    "@taimos/projen": "^0.0.205",
+    "@taimos/projen": "^0.0.206",
     "@types/chai": "^4.3.16",
     "@types/mocha": "^10.0.7",
     "@types/node": "^18",
@@ -54,7 +54,7 @@
     "sinon": "^15.0.2",
     "standard-version": "^9",
     "ts-node": "^10.9.2",
-    "typedoc": "^0.26.1",
+    "typedoc": "^0.26.3",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
@@ -62,10 +62,10 @@
     "ask-sdk-core": "^2.10.1",
     "ask-sdk-model": "^1.34.1",
     "chai": "^4.4.1",
-    "mocha": "^10.4.0"
+    "mocha": "^10.5.2"
   },
   "dependencies": {
-    "aws-sdk": "^2.1646.0",
+    "aws-sdk": "^2.1651.0",
     "aws-sdk-mock": "^5.9.0",
     "lambda-local": "^2.2.0",
     "nock": "^13.5.4",
