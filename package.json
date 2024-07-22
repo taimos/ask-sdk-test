@@ -49,12 +49,12 @@
     "eslint-plugin-import": "^2.29.1",
     "mocha": "10.6.0",
     "nyc": "^15.1.0",
-    "projen": "^0.82.8",
+    "projen": "^0.84.6",
     "rimraf": "^5.0.9",
     "sinon": "^15.0.2",
     "standard-version": "^9",
     "ts-node": "^10.9.2",
-    "typedoc": "^0.26.4",
+    "typedoc": "^0.26.5",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
@@ -62,7 +62,7 @@
     "ask-sdk-core": "^2.10.1",
     "ask-sdk-model": "^1.34.1",
     "chai": "^4.4.1",
-    "mocha": "^10.6.0"
+    "mocha": "^10.7.0"
   },
   "dependencies": {
     "aws-sdk": "^2.1659.0",
